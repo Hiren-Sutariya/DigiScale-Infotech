@@ -67,6 +67,11 @@ export default function Contact() {
       const data = await response.json();
       console.log(data);
 
+      toast({
+        title: "Inquiry Submitted Successfully 🎉",
+        description: "Thank you! We have received your project inquiry and will contact you soon.",
+      });
+
       form.reset();
     } catch (error) {
       toast({
