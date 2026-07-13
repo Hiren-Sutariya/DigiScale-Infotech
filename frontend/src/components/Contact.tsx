@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -234,9 +234,17 @@ export default function Contact() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="h-12 px-10 text-base font-semibold rounded-full bg-primary hover:bg-primary/90"
+                      disabled={form.formState.isSubmitting}
+                      className="h-12 px-10 text-base font-semibold rounded-full bg-primary hover:bg-primary/90 inline-flex items-center gap-2"
                     >
-                      Get Free Consultation
+                      {form.formState.isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Get Free Consultation"
+                      )}
                     </Button>
                   </form>
                 </Form>

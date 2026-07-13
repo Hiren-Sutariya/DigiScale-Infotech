@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "wouter";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { FaLinkedin, FaInstagram, FaFacebook, FaGithub, } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,9 +12,11 @@ export default function Footer() {
 
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
     try {
       await subscribeNewsletter({
@@ -46,6 +48,8 @@ export default function Footer() {
       }
 
       console.error(error);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -98,13 +102,22 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={submitting}
                   className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-primary h-10 text-sm"
                 />
                 <Button
                   type="submit"
-                  className="bg-primary hover:bg-primary/90 h-10 px-5 text-sm shrink-0 rounded-lg w-full sm:w-auto"
+                  disabled={submitting}
+                  className="bg-primary hover:bg-primary/90 h-10 px-5 text-sm shrink-0 rounded-lg w-full sm:w-auto inline-flex items-center justify-center gap-1.5"
                 >
-                  → Contact Us
+                  {submitting ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    "→ Contact Us"
+                  )}
                 </Button>
               </form>
             )}

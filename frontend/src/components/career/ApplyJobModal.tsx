@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +25,7 @@ export default function ApplyJobModal({
   const [company, setCompany] = useState("");
   const [location, setLocation] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const [countryCode, setCountryCode] = useState("+91");
   const [phoneError, setPhoneError] = useState("");
@@ -553,26 +554,26 @@ export default function ApplyJobModal({
 
                   <div className="mt-10 rounded-xl border bg-slate-50 p-5 space-y-3">
 
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Applicant</span>
-                      <span className="font-medium">
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Applicant</span>
+                      <span className="text-sm font-medium">
                         {firstName} {lastName}
                       </span>
                     </div>
 
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Email</span>
-                      <span>{email}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Email</span>
+                      <span className="text-sm font-medium break-all">{email}</span>
                     </div>
 
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Experience</span>
-                      <span>{experience}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Experience</span>
+                      <span className="text-sm font-medium">{experience}</span>
                     </div>
 
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Resume</span>
-                      <span>{resume?.name}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Resume</span>
+                      <span className="text-sm font-medium break-all">{resume?.name}</span>
                     </div>
 
                   </div>
@@ -587,11 +588,11 @@ export default function ApplyJobModal({
                     </Button>
 
                     <Button
-                      className="min-w-47.5"
+                      className="min-w-47.5 inline-flex items-center gap-2"
+                      disabled={submitting}
                       onClick={async () => {
-
+                        setSubmitting(true);
                         try {
-
                           console.log("Submitting application...");
 
                           const formData = new FormData();
@@ -651,11 +652,20 @@ export default function ApplyJobModal({
                           console.error(error);
                           alert("Failed to submit application.");
 
+                        } finally {
+                          setSubmitting(false);
                         }
 
                       }}
                     >
-                      Submit Application
+                      {submitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Submit Application"
+                      )}
                     </Button>
 
                   </div>
@@ -668,12 +678,12 @@ export default function ApplyJobModal({
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="fixed inset-0 z-60 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+                  className="fixed inset-0 z-60 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
                 >
                   <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl text-center"
+                    className="w-full max-w-md rounded-2xl bg-white p-6 sm:p-8 shadow-2xl text-center"
                   >
                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
                       <span className="text-3xl">✓</span>
