@@ -1,15 +1,14 @@
-import { Building2, Hexagon, Component, Layers, Box, Cpu, Globe, Network } from "lucide-react";
+import skyparrowLogo from "@/assets/trusted_companies/Skyparrow.svg";
+import stienhardtLogo from "@/assets/trusted_companies/Stienhardt.svg";
+import ravinaLogo from "@/assets/trusted_companies/ravina.svg";
+import texaflowLogo from "@/assets/trusted_companies/texaflow.svg";
 
 export default function TrustedBy() {
   const logos = [
-    { icon: Building2, name: "Acme Corp" },
-    { icon: Hexagon, name: "Globex" },
-    { icon: Component, name: "Soylent" },
-    { icon: Layers, name: "Initech" },
-    { icon: Box, name: "Umbrella" },
-    { icon: Cpu, name: "Massive" },
-    { icon: Globe, name: "Stark" },
-    { icon: Network, name: "Wayne Co" },
+    { name: "Skyparrow", image: skyparrowLogo },
+    { name: "Stienhardt", image: stienhardtLogo },
+    { name: "Ravina", image: ravinaLogo },
+    { name: "Texaflow", image: texaflowLogo },
   ];
 
   return (
@@ -28,15 +27,16 @@ export default function TrustedBy() {
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
-          {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
+          {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo, i) => (
             <div
               key={i}
-              className="flex items-center justify-center gap-2.5 mx-10 min-w-max grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
+              className="flex items-center justify-center mx-10 min-w-max grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
             >
-              <logo.icon className="w-6 h-6 text-foreground" />
-              <span className="text-lg font-semibold text-foreground font-sans whitespace-nowrap">
-                {logo.name}
-              </span>
+              <img
+                src={logo.image}
+                alt={logo.name}
+                className="h-10 w-auto object-contain text-foreground"
+              />
             </div>
           ))}
         </div>
