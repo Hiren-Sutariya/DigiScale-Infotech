@@ -12,6 +12,7 @@
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@fontsource-variable/oxanium": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
     "@hookform/resolvers": "^5.4.0",
     "@radix-ui/react-label": "^2.1.11",
     "@radix-ui/react-select": "^2.3.2",

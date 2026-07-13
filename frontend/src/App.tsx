@@ -69,7 +69,7 @@ import { API_URL } from "@/api/client";
 export default function App() {
   useEffect(() => {
     // Wake up Render backend service on load to prevent cold start delays
-    fetch(`${API_URL}/health`).catch((err) => console.log("Backend wake up failed", err));
+    fetch(`${API_URL}/health`, { mode: "no-cors" }).catch((err) => console.log("Backend wake up failed", err));
   }, []);
 
   return (
