@@ -91,7 +91,7 @@ export default function Footer() {
             {subscribed ? (
               <p className="text-primary text-sm font-medium">Thanks for scheduling a consultation!</p>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 max-w-sm w-full">
                 <Input
                   type="email"
                   placeholder="Your email address"
@@ -102,7 +102,7 @@ export default function Footer() {
                 />
                 <Button
                   type="submit"
-                  className="bg-primary hover:bg-primary/90 h-10 px-5 text-sm shrink-0 rounded-lg"
+                  className="bg-primary hover:bg-primary/90 h-10 px-5 text-sm shrink-0 rounded-lg w-full sm:w-auto"
                 >
                   → Contact Us
                 </Button>
@@ -112,7 +112,7 @@ export default function Footer() {
         </div>
 
         {/* 4-column links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-14">
           {/* Company */}
           <div>
             <h4 className="text-xs font-bold mb-5 uppercase tracking-wider text-white/60">Company</h4>
@@ -151,7 +151,7 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2 text-white/50 text-sm">
                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary/60" />
-                <span>hello@digiscaleinfotech.com</span>
+                <span className="break-all">hello@digiscaleinfotech.com</span>
               </li>
               <li className="flex items-start gap-2 text-white/50 text-sm">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary/60" />
