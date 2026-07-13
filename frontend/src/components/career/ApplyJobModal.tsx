@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Loader2 } from "lucide-react";
+import { useLocation } from "wouter";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +18,7 @@ export default function ApplyJobModal({
   jobTitle,
   onClose,
 }: ApplyJobModalProps) {
+  const [_, setNavigate] = useLocation();
 
   const [step, setStep] = useState(1);
 
@@ -713,6 +715,7 @@ export default function ApplyJobModal({
                         setSubmitted(false);
                         setStep(1);
                         onClose();
+                        setNavigate("/");
                       }}
                     >
                       Done
