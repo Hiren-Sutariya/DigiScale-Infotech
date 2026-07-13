@@ -84,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold text-foreground tracking-tight leading-[1.1] mb-3"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold text-foreground tracking-tight leading-[1.1] mb-3"
         >
           Scale Your Business With{" "}
           <br className="hidden md:block" />
@@ -104,7 +104,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.24 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-[560px] mx-auto mb-7 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-[560px] mx-auto mb-7 leading-relaxed"
         >
           We build AI-powered software, modern web applications, and scalable digital solutions for ambitious businesses.
         </motion.p>

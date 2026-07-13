@@ -64,7 +64,7 @@ export default function Navbar() {
           }`}
         style={{ height: navHeight }}
       >
-        <div className="container mx-auto px-6 max-w-7xl h-full flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl h-full flex items-center justify-between">
           {/* <Link href="/" className="flex items-center">
             <span className="text-xl font-bold tracking-tight text-foreground">
               <span className="text-primary">D</span>igiScale Infotech
@@ -75,7 +75,7 @@ export default function Navbar() {
             <img
               src="/logo.svg"
               alt="DigiScale Infotech"
-              className="h-12 w-auto object-contain"
+              className="h-9 sm:h-12 w-auto object-contain"
             />
           </Link>
 
@@ -310,7 +310,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 26, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-70 bg-white z-50 p-6 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-white z-50 p-6 pb-12 shadow-2xl flex flex-col"
             >
               <div className="flex justify-between items-center mb-7">
                 <span className="text-lg font-bold text-primary">DigiScale</span>

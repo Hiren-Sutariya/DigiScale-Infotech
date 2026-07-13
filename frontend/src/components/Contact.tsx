@@ -95,7 +95,7 @@ export default function Contact() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-5">
               {/* Left Panel */}
-              <div className="lg:col-span-2 bg-foreground text-white p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+              <div className="lg:col-span-2 bg-foreground text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                 <div className="absolute top-[-10%] right-[-10%] w-[260px] h-[260px] rounded-full bg-primary/20 blur-[80px]" />
                 <div className="relative z-10">
                   <h3 className="text-3xl font-bold mb-3 text-white">
@@ -126,7 +126,7 @@ export default function Contact() {
               </div>
 
               {/* Right Panel — Form */}
-              <div className="lg:col-span-3 p-10 lg:p-12 bg-white">
+              <div className="lg:col-span-3 p-6 sm:p-10 lg:p-12 bg-white">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
