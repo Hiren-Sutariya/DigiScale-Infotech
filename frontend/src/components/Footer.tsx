@@ -154,7 +154,6 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li><Link href="/privacy" className="text-white/50 hover:text-white text-sm transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-white/50 hover:text-white text-sm transition-colors">Terms & Conditions</Link></li>
-              <li><Link href="/contact" className="text-white/50 hover:text-white text-sm transition-colors">FAQs</Link></li>
             </ul>
           </div>
 
