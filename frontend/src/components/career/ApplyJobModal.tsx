@@ -146,7 +146,7 @@ export default function ApplyJobModal({
 
                   <div className="space-y-6">
 
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                       <div>
 
@@ -254,9 +254,10 @@ export default function ApplyJobModal({
 
                   </div>
 
-                  <div className="flex justify-end mt-12">
+                  <div className="flex flex-col sm:flex-row justify-end mt-12 gap-3">
 
                     <Button
+                      className="w-full sm:w-auto"
                       onClick={() => {
 
                         const onlyDigits = phone.replace(/\D/g, "");
@@ -365,16 +366,18 @@ export default function ApplyJobModal({
 
                   </div>
 
-                  <div className="flex justify-between mt-10">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 mt-10">
 
                     <Button
                       variant="outline"
+                      className="w-full sm:w-auto"
                       onClick={() => setStep(1)}
                     >
                       ← Previous
                     </Button>
 
                     <Button
+                      className="w-full sm:w-auto"
                       disabled={
                         !experience ||
                         !location
@@ -431,10 +434,11 @@ export default function ApplyJobModal({
 
                   </div>
 
-                  <div className="flex justify-between mt-10">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 mt-10">
 
                     <Button
                       variant="outline"
+                      className="w-full sm:w-auto"
                       onClick={() => setStep(2)}
                     >
 
@@ -443,6 +447,7 @@ export default function ApplyJobModal({
                     </Button>
 
                     <Button
+                      className="w-full sm:w-auto"
                       disabled={!resume}
                       onClick={() => setStep(4)}
                     >
@@ -505,16 +510,18 @@ export default function ApplyJobModal({
 
                   </div>
 
-                  <div className="flex justify-between mt-8">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 mt-8">
 
                     <Button
                       variant="outline"
+                      className="w-full sm:w-auto"
                       onClick={() => setStep(3)}
                     >
                       ← Previous
                     </Button>
 
                     <Button
+                      className="w-full sm:w-auto"
                       onClick={() => setStep(5)}
                     >
                       Continue →
@@ -578,17 +585,18 @@ export default function ApplyJobModal({
 
                   </div>
 
-                  <div className="flex justify-between mt-10">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 mt-10">
 
                     <Button
                       variant="outline"
+                      className="w-full sm:w-auto"
                       onClick={() => setStep(4)}
                     >
                       ← Previous
                     </Button>
 
                     <Button
-                      className="min-w-47.5 inline-flex items-center gap-2"
+                      className="w-full sm:w-auto sm:min-w-47.5 inline-flex items-center justify-center gap-2"
                       disabled={submitting}
                       onClick={async () => {
                         setSubmitting(true);
