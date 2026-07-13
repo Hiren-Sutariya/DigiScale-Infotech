@@ -55,7 +55,7 @@ export default function ApplyJobModal({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 25, opacity: 0 }}
             transition={{ duration: .2 }}
-            className="bg-white rounded-2xl w-full max-w-2xl shadow-xl overflow-hidden"
+            className="bg-white rounded-2xl w-full max-w-2xl shadow-xl overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh]"
           >
 
             {/* Header */}
@@ -129,7 +129,7 @@ export default function ApplyJobModal({
 
             {/* Body */}
 
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 overflow-y-auto flex-grow">
 
               {step === 1 && (
 
