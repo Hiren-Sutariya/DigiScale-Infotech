@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
   }, []);
 
   return (
-    <main className="min-h-screen w-full flex flex-col bg-background">
+    <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <Navbar />
 
       <section className="pt-28 pb-10 lg:pt-36 bg-accent/20 text-center">

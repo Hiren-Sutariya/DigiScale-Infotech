@@ -70,12 +70,12 @@ export default function Hero() {
       {/* Top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[360px] -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/7 via-transparent to-transparent" />
 
-      <div className="container mx-auto px-6 max-w-5xl text-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium"
+          className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs sm:text-sm font-medium max-w-full text-center"
         >
           AI-Powered Software Development Company
         </motion.div>

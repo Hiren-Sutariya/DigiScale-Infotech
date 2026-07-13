@@ -7,7 +7,7 @@ export default function TechStack() {
 
   return (
     <section id="tech" className="py-24 bg-accent/20">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -28,8 +28,8 @@ export default function TechStack() {
           </motion.p>
         </div>
 
-        <div className="flex flex-col items-center">
-          <div className="flex flex-wrap justify-center gap-2 mb-12 p-1.5 bg-white border border-border/50 rounded-xl shadow-sm">
+        <div className="flex flex-col items-center w-full">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mb-12 p-1 sm:p-1.5 bg-white border border-border/50 rounded-xl shadow-sm max-w-full">
             {techCategories.map((category) => (
               <button
                 key={category.id}
@@ -45,7 +45,7 @@ export default function TechStack() {
             ))}
           </div>
 
-          <div className="w-full max-w-4xl mx-auto bg-white border border-border/50 rounded-3xl p-8 sm:p-12 shadow-sm min-h-[300px] flex items-center justify-center">
+          <div className="w-full max-w-4xl mx-auto bg-white border border-border/50 rounded-2xl sm:rounded-3xl p-5 sm:p-12 shadow-sm min-h-[300px] flex items-center justify-center">
             {techCategories.map((category) => (
               category.id === activeTab && (
                 <motion.div

@@ -43,7 +43,7 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-16 bg-background">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

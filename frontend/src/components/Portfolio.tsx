@@ -6,7 +6,7 @@ import { Link } from "wouter";
 export default function Portfolio() {
   return (
     <section id="portfolio" className="py-16 bg-accent/30">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-2xl">
             <motion.h2

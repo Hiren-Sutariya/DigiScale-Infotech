@@ -4,7 +4,7 @@ import { processSteps } from "@/data/process";
 export default function Process() {
   return (
     <section className="py-24 bg-background">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="text-center mb-20 max-w-2xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

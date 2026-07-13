@@ -18,7 +18,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <motion.h2 
@@ -49,7 +49,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="embla" ref={emblaRef}>
+        <div className="embla overflow-hidden" ref={emblaRef}>
           <div className="embla__container flex -ml-4 md:-ml-8 cursor-grab active:cursor-grabbing">
             {testimonials.map((testimonial, idx) => (
               <div key={idx} className="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 md:pl-8">

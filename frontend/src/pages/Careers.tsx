@@ -46,7 +46,7 @@ export default function Careers() {
 
   return (
 
-    <main className="min-h-screen w-full flex flex-col bg-background">
+    <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <Navbar />
 
       <section className="pt-32 pb-12 lg:pt-36 lg:pb-2 bg-accent/20">

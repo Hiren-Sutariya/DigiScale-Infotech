@@ -50,8 +50,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0F1629] pt-20 pb-8 text-white">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <footer className="bg-foreground text-white/80 pt-20 pb-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
 
         {/* Top: Brand + Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-14 mb-14 border-b border-white/10">

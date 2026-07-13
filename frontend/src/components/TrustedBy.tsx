@@ -13,7 +13,7 @@ export default function TrustedBy() {
 
   return (
     <section className="py-14 border-y border-border/40 bg-background overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl mb-8 text-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl mb-8 text-center">
         <h3 className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
           Trusted By Companies
         </h3>
