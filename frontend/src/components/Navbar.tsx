@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { lenis } from "@/lib/lenis";
 
 type DropdownType = "capabilities" | "solutions" | "techstack" | null;
 
@@ -13,7 +12,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
   const closeTimer = useRef<any>(null);
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -32,11 +31,7 @@ export default function Navbar() {
 
   const handleTalkToExpert = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location === "/") {
-      lenis.scrollTo("#contact", { offset: -100, duration: 0.8 });
-    } else {
-      setLocation("/contact");
-    }
+    setLocation("/contact");
     setMobileMenuOpen(false);
   };
 
