@@ -74,7 +74,7 @@ export default function Contact() {
       <Navbar />
 
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-12 lg:pt-36 lg:pb-14 overflow-hidden bg-white text-center">
+      <section className="relative pt-24 pb-6 lg:pt-28 lg:pb-8 overflow-hidden text-center">
         {/* Animated background blobs */}
         <div
           className="absolute inset-0 -z-10 opacity-[0.022]"
@@ -123,7 +123,7 @@ export default function Contact() {
       </section>
 
       {/* ── Main Two-Column ── */}
-      <section className="py-2">
+      <section className="pb-16 pt-2">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
@@ -132,7 +132,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-2"
+              className="lg:col-span-2 order-2 lg:order-1"
             >
               <div className="bg-white border border-border/50 rounded-2xl p-8 shadow-sm h-full flex flex-col gap-8">
                 <div>
@@ -180,7 +180,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-3"
+              className="lg:col-span-3 order-1 lg:order-2"
             >
               <div className="bg-white border border-border/50 rounded-2xl p-8 shadow-sm">
                 <h2 className="text-xl font-bold text-foreground mb-6">Send a Message</h2>
