@@ -2,6 +2,7 @@ import skyparrowLogo from "@/assets/trusted_companies/Skyparrow.svg";
 import stienhardtLogo from "@/assets/trusted_companies/Stienhardt.svg";
 import ravinaLogo from "@/assets/trusted_companies/ravina.svg";
 import texaflowLogo from "@/assets/trusted_companies/texaflow.svg";
+import foreverLogo from "@/assets/trusted_companies/4ever.svg";
 
 export default function TrustedBy() {
   const logos = [
@@ -9,6 +10,7 @@ export default function TrustedBy() {
     { name: "Stienhardt", image: stienhardtLogo },
     { name: "Ravina", image: ravinaLogo },
     { name: "Texaflow", image: texaflowLogo },
+    { name: "4ever", image: foreverLogo },
   ];
 
   return (
