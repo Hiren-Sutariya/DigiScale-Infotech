@@ -30,12 +30,12 @@ export default function TrustedBy() {
           {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo, i) => (
             <div
               key={i}
-              className="flex items-center justify-center mx-10 min-w-max grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
+              className="flex items-center justify-center mx-8 w-36 h-12 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
             >
               <img
                 src={logo.image}
                 alt={logo.name}
-                className="h-10 w-auto object-contain text-foreground"
+                className="max-h-full max-w-full object-contain text-foreground"
               />
             </div>
           ))}
