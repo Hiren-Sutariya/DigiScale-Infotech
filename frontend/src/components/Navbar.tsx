@@ -35,8 +35,7 @@ export default function Navbar() {
     if (location === "/") {
       lenis.scrollTo("#contact", { offset: -100, duration: 0.8 });
     } else {
-      window.location.hash = "contact";
-      setLocation("/");
+      setLocation("/contact");
     }
     setMobileMenuOpen(false);
   };

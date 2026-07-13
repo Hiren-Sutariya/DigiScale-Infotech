@@ -78,7 +78,7 @@ export default function CaseStudies() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-32 lg:pb-2 bg-accent/20 text-center">
+      <section className="pt-24 pb-8 lg:pt-28 lg:pb-4 bg-accent/20 text-center">
         <div className="container mx-auto px-6 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-5 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium"
@@ -86,12 +86,12 @@ export default function CaseStudies() {
             Our Portfolio
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-foreground mb-5"
+            className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-foreground mb-4"
           >
             Projects That Deliver Results
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
             Explore a selection of websites, Shopify stores, AI solutions, and custom software we've built for growing businesses.
           </motion.p>
@@ -99,7 +99,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="pt-4 pb-20 lg:pt-6">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, i) => (
