@@ -86,9 +86,7 @@ export default function ApplyJobModal({
 
               </div>
 
-              {/* Progress */}
-
-              <div className="flex items-center gap-3 text-sm mt-5">
+              <div className="hidden sm:flex items-center gap-3 text-sm mt-5">
 
                 <span className={step >= 1 ? "text-blue-600" : "text-slate-400"}>
                   Personal
@@ -118,6 +116,13 @@ export default function ApplyJobModal({
                   Submit
                 </span>
 
+              </div>
+
+              <div className="flex sm:hidden items-center text-sm mt-5 font-medium text-slate-500">
+                <span>Step {step} of 5: </span>
+                <span className="text-blue-600 ml-1.5">
+                  {step === 1 ? "Personal" : step === 2 ? "Experience" : step === 3 ? "Resume" : step === 4 ? "Review" : "Submit"}
+                </span>
               </div>
 
             </div>
@@ -467,34 +472,34 @@ export default function ApplyJobModal({
 
                   <div className="rounded-xl border divide-y">
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Name</span>
-                      <span>{firstName} {lastName}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Name</span>
+                      <span className="text-sm font-medium">{firstName} {lastName}</span>
                     </div>
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Email</span>
-                      <span>{email}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Email</span>
+                      <span className="text-sm font-medium break-all">{email}</span>
                     </div>
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Phone</span>
-                      <span>{phone}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Phone</span>
+                      <span className="text-sm font-medium">{phone}</span>
                     </div>
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Experience</span>
-                      <span>{experience}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Experience</span>
+                      <span className="text-sm font-medium">{experience}</span>
                     </div>
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Location</span>
-                      <span>{location}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Location</span>
+                      <span className="text-sm font-medium">{location}</span>
                     </div>
 
-                    <div className="flex justify-between p-4">
-                      <span className="text-slate-500">Resume</span>
-                      <span>{resume?.name}</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between p-4 gap-1">
+                      <span className="text-slate-500 text-xs sm:text-sm">Resume</span>
+                      <span className="text-sm font-medium break-all">{resume?.name}</span>
                     </div>
 
                   </div>
