@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
   const closeTimer = useRef<any>(null);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -33,9 +33,10 @@ export default function Navbar() {
   const handleTalkToExpert = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location === "/") {
-      lenis.scrollTo("#contact", { offset: -100, duration: 0.6 });
+      lenis.scrollTo("#contact", { offset: -100, duration: 0.8 });
     } else {
-      window.location.href = "/#contact";
+      window.location.hash = "contact";
+      setLocation("/");
     }
     setMobileMenuOpen(false);
   };

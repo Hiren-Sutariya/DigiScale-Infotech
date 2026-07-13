@@ -22,6 +22,17 @@ function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash;
+      setTimeout(() => {
+        const target = document.querySelector(hash);
+        if (target) {
+          lenis.scrollTo(hash, { offset: -100, duration: 0.8 });
+        }
+      }, 250);
+      return;
+    }
+
     requestAnimationFrame(() => {
       lenis.scrollTo(0, {
         immediate: true,
