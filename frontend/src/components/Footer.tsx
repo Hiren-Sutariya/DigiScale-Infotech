@@ -88,12 +88,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold mb-2 text-white/80">Let's Build Together</h4>
+            <h4 className="text-sm font-semibold mb-2 text-white/80">Stay Updated</h4>
             <p className="text-white/40 text-sm mb-4">
-              Have a project in mind? Let's discuss how we can bring your ideas to life.
+              Subscribe to our newsletter for the latest digital insights and updates.
             </p>
             {subscribed ? (
-              <p className="text-primary text-sm font-medium">Thanks for scheduling a consultation!</p>
+              <p className="text-primary text-sm font-medium">Thanks for subscribing! 🎉</p>
             ) : (
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 max-w-sm w-full">
                 <Input
@@ -116,7 +116,7 @@ export default function Footer() {
                       Submitting...
                     </>
                   ) : (
-                    "→ Contact Us"
+                    "Subscribe"
                   )}
                 </Button>
               </form>

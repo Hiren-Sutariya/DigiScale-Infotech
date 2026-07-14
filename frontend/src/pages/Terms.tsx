@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -36,13 +35,16 @@ const sections = [
   },
 ];
 
-export default function Terms() {
-  useEffect(() => {
-    document.title = "Terms & Conditions | DigiScale Infotech";
-  }, []);
+import SEO from "@/components/SEO";
 
+export default function Terms() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Terms & Conditions"
+        description="Read the Terms and Conditions of DigiScale Infotech governing the use of our website and services."
+        path="/terms"
+      />
       <Navbar />
 
       <section className="pt-28 pb-10 lg:pt-36 bg-accent/20 text-center">

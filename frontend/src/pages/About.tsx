@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import {
@@ -12,6 +11,7 @@ CheckCircle
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -19,12 +19,13 @@ const fadeUp = {
 };
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About Us | DigiScale Infotech";
-  }, []);
-
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="About Us"
+        description="Learn about DigiScale Infotech, our values, our mission, and the expert team building custom software and digital solutions for growing businesses."
+        path="/about"
+      />
       <Navbar />
 
       {/* Hero */}

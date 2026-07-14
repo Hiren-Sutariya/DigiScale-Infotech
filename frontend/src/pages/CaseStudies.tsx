@@ -1,13 +1,13 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
-import project1 from "@/assets/Portfolio/project1.png";
-import project2 from "@/assets/Portfolio/project2.png";
-import project3 from "@/assets/Portfolio/project3.png";
-import project4 from "@/assets/Portfolio/project4.png";
-import project5 from "@/assets/Portfolio/project5.png";
+import project1 from "@/assets/Portfolio/project1.webp";
+import project2 from "@/assets/Portfolio/project2.webp";
+import project3 from "@/assets/Portfolio/project3.webp";
+import project4 from "@/assets/Portfolio/project4.webp";
+import project5 from "@/assets/Portfolio/project5.webp";
 
 export const projects = [
   
@@ -68,13 +68,14 @@ export const projects = [
 ];
 
 export default function CaseStudies() {
-  useEffect(() => {
-    document.title = "Case Studies | DigiScale Infotech";
-  }, []);
-
   return (
     
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Case Studies"
+        description="Explore our portfolio of successful projects, including custom websites, Shopify stores, AI automation tools, and custom software systems."
+        path="/case-studies"
+      />
       <Navbar />
 
       {/* Hero */}
@@ -103,8 +104,11 @@ export default function CaseStudies() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
                 className="bg-white border border-border/50 rounded-2xl overflow-hidden group hover:-translate-y-1 hover:shadow-[0_16px_40px_rgb(52,107,188,0.1)] transition-all duration-300"
               >
                 <div className="aspect-video overflow-hidden bg-accent/30">

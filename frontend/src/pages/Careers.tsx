@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import ApplyJobModal from "@/components/career/ApplyJobModal";
+import SEO from "@/components/SEO";
 
 const openings = [
   {
@@ -37,16 +38,17 @@ const openings = [
 
 
 export default function Careers() {
-  useEffect(() => {
-    document.title = "Careers | DigiScale Infotech";
-  }, []);
-
   const [openModal, setOpenModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
 
   return (
 
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Careers"
+        description="Join our team at DigiScale Infotech. We are always looking for talented designers, developers, and problem solvers to build premium digital products."
+        path="/careers"
+      />
       <Navbar />
 
       <section className="pt-32 pb-12 lg:pt-36 lg:pb-2 bg-accent/20">

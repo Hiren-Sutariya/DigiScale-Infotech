@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { submitContact } from "@/api/contact";
+import SEO from "@/components/SEO";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -37,9 +37,6 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<ContactForm>({ resolver: zodResolver(contactSchema) });
 
-  useEffect(() => {
-    document.title = "Contact | DigiScale Infotech";
-  }, []);
 
   const onSubmit = async (data: ContactForm) => {
     try {
@@ -71,6 +68,11 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Contact"
+        description="Get in touch with DigiScale Infotech. Tell us about your project, software requirements, or business goals, and we'll get back to you shortly."
+        path="/contact"
+      />
       <Navbar />
 
       {/* ── Hero ── */}

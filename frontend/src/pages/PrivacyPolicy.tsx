@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -36,13 +35,16 @@ const sections = [
   },
 ];
 
-export default function PrivacyPolicy() {
-  useEffect(() => {
-    document.title = "Privacy Policy | DigiScale Infotech";
-  }, []);
+import SEO from "@/components/SEO";
 
+export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Privacy Policy"
+        description="Read the Privacy Policy of DigiScale Infotech to understand how we collect, use, and protect your personal information."
+        path="/privacy"
+      />
       <Navbar />
 
       <section className="pt-28 pb-10 lg:pt-36 bg-accent/20 text-center">

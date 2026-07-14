@@ -9,6 +9,7 @@ import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { lenis } from "@/lib/lenis";
 
 export default function Home() {
@@ -22,6 +23,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
+      <SEO
+        title="Web Development, AI Automation & Digital Solutions"
+        description="DigiScale Infotech builds modern websites, scalable software, AI automation solutions and digital products that help businesses grow."
+        path="/"
+      />
       <Navbar />
       <Hero />
       <TrustedBy />
