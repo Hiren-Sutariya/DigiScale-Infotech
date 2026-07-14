@@ -75,13 +75,21 @@ export default function Footer() {
               DigiScale Infotech helps startups and businesses build scalable digital products and digital experiences.
             </p>
             <div className="flex gap-3">
-              {[FaLinkedin, FaInstagram, FaFacebook, FaGithub].map((Icon, i) => (
+              {[
+                { icon: FaLinkedin, url: "https://www.linkedin.com/company/digiscale-infotech/", label: "LinkedIn" },
+                { icon: FaInstagram, url: "https://www.instagram.com/digiscaleinfotech/", label: "Instagram" },
+                { icon: FaFacebook, url: "https://www.facebook.com/digiscaleinfotech/", label: "Facebook" },
+                { icon: FaGithub, url: "https://github.com/DigiScaleInfotech", label: "GitHub" },
+              ].map((link, i) => (
                 <a
                   key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-lg bg-white/5 hover:bg-primary/80 flex items-center justify-center transition-colors group"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="w-11 h-11 rounded-lg bg-white/5 hover:bg-primary/80 flex items-center justify-center transition-colors group"
                 >
-                  <Icon className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+                  <link.icon className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
@@ -116,7 +124,7 @@ export default function Footer() {
                       Submitting...
                     </>
                   ) : (
-                    "Subscribe"
+                    "Get Started"
                   )}
                 </Button>
               </form>
@@ -167,7 +175,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2 text-white/50 text-sm">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary/60" />
-                +91 98982 13183
+                <a href="tel:+919898213183" className="hover:text-white transition-colors">+91 98982 13183</a>
               </li>
               <li className="flex items-start gap-2 text-white/50 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary/60" />
