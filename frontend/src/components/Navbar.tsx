@@ -86,6 +86,8 @@ export default function Navbar() {
             {(["capabilities" /* , "solutions", "techstack" */] as DropdownType[]).map((name) => (
               <div key={name} onMouseEnter={() => openDropdown(name)} onMouseLeave={scheduleClose}>
                 <button
+                  aria-haspopup="true"
+                  aria-expanded={activeDropdown === name}
                   className={`flex items-center gap-1 text-sm font-medium transition-colors py-2 ${activeDropdown === name ? "text-primary" : "text-foreground/80 hover:text-primary"
                     }`}
                 >
@@ -110,7 +112,7 @@ export default function Navbar() {
               onClick={handleTalkToExpert}
               className="rounded-full px-6 bg-primary hover:bg-primary/90 shadow-sm cursor-pointer"
             >
-              Talk To Expert
+              Talk to an Expert
             </Button>
           </div>
 
@@ -333,7 +335,7 @@ export default function Navbar() {
               </nav>
               <div className="mt-auto pt-6 border-t border-border">
                 <Button onClick={handleTalkToExpert} className="w-full rounded-full bg-primary">
-                  Talk To Expert
+                  Talk to an Expert
                 </Button>
               </div>
             </motion.div>

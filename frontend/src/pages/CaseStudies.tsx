@@ -123,7 +123,7 @@ export default function CaseStudies() {
                   <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold mb-4">
                     {project.industry}
                   </span>
-                  <h3 className="text-xl font-bold text-foreground mb-4">{project.name}</h3>
+                  <h2 className="text-xl font-bold text-foreground mb-4">{project.name}</h2>
 
                   <div className="space-y-3 mb-5 text-sm text-muted-foreground">
                     <div>

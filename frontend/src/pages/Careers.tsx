@@ -56,7 +56,7 @@ export default function Careers() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-5 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium"
+            className="inline-block mb-5 px-4 py-1.5 rounded-full bg-primary text-white text-sm font-semibold shadow-sm"
           >
             We're Hiring
           </motion.div>
@@ -115,6 +115,7 @@ export default function Careers() {
                 <Button
                   size="lg"
                   className="rounded-full px-8"
+                  aria-label={`Apply Now for ${job.title}`}
                   onClick={() => {
                     setSelectedJob(job.title);
                     setOpenModal(true);
