@@ -10,6 +10,7 @@ import project2 from "@/assets/Portfolio/project2.webp";
 import project3 from "@/assets/Portfolio/project3.webp";
 import project4 from "@/assets/Portfolio/project4.webp";
 import project5 from "@/assets/Portfolio/project5.webp";
+import project6 from "@/assets/Portfolio/project6.webp";
 
 export const projects = [
   {
@@ -49,7 +50,7 @@ export const projects = [
     result: "Enhanced the brand's online presence and delivered a smooth shopping experience that builds customer confidence.",
   },
   {
-    image: project1,
+    image: project6,
     industry: "Web Application",
     name: "Max Water",
     link: "https://maxwater.in",
