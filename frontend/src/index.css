@@ -60,9 +60,9 @@ html.lenis body {
 }
 
 :root {
-  --app-font-sans: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --app-font-sans: 'Geist', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --app-font-serif: Georgia, serif;
-  --app-font-mono: 'JetBrains Mono', monospace;
+  --app-font-mono: 'Geist Mono', 'Courier New', monospace;
   --radius: 1rem;
 
   --background: 78 28% 84%; /* #DBE2CB */
@@ -162,19 +162,15 @@ html.lenis body {
     border-color: hsl(var(--border));
   }
   body {
-    font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Geist', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.035em;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Geist', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
   }
   html {
     scroll-behavior: smooth;
