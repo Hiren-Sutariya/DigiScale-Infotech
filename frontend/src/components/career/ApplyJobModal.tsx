@@ -64,6 +64,19 @@ export default function ApplyJobModal({
     setSubmitting(true);
 
     try {
+      let resumeDataBase64 = "";
+      let resumeFilename = "";
+
+      if (resume) {
+        resumeFilename = resume.name;
+        resumeDataBase64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(resume);
+        });
+      }
+
       const res = await fetch(`${API_URL}/apply-job`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -73,6 +86,8 @@ export default function ApplyJobModal({
           phone,
           position: jobTitle,
           portfolio_url: portfolio,
+          resume_data: resumeDataBase64,
+          resume_filename: resumeFilename,
           message: resume ? `Uploaded File: ${resume.name}` : "",
         }),
       });

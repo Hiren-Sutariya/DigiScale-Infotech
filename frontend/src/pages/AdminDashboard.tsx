@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { API_URL } from "@/api/client";
 import {
@@ -14,6 +14,10 @@ import {
   Eye,
   X,
   RefreshCw,
+  FileText,
+  ChevronDown,
+  Check,
+  Download,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -47,6 +51,77 @@ interface Stats {
   newInquiries: number;
   totalApplications: number;
   pendingApplications: number;
+}
+
+// ----------------------------------------------------
+// CUSTOM STATUS DROPDOWN COMPONENT (Replaces OS select)
+// ----------------------------------------------------
+function StatusDropdown({
+  value,
+  options,
+  onChange,
+}: {
+  value: string;
+  options: { label: string; value: string; colorClass: string }[];
+  onChange: (val: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const currentOption = options.find((opt) => opt.value === value) || options[0];
+
+  return (
+    <div className="relative inline-block text-left" ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className={`px-3 py-1 rounded-full text-[11px] font-bold border flex items-center gap-1.5 transition-all cursor-pointer shadow-sm ${currentOption.colorClass}`}
+      >
+        <span>{currentOption.label}</span>
+        <ChevronDown className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 4, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            className="absolute right-0 mt-1.5 w-36 bg-white border border-[#112D16]/15 rounded-xl shadow-xl z-50 overflow-hidden p-1"
+          >
+            {options.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => {
+                  onChange(opt.value);
+                  setOpen(false);
+                }}
+                className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer ${
+                  value === opt.value
+                    ? "bg-[#112D16] text-[#C6D6B1]"
+                    : "text-[#112D16] hover:bg-[#112D16]/5"
+                }`}
+              >
+                <span>{opt.label}</span>
+                {value === opt.value && <Check className="w-3.5 h-3.5 text-[#C6D6B1]" />}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export default function AdminDashboard() {
@@ -212,6 +287,17 @@ export default function AdminDashboard() {
     }
   };
 
+  // Resolve File URL
+  const getFileUrl = (url: string) => {
+    if (!url) return null;
+    if (url.startsWith("http://") || url.startsWith("https://")) return url;
+    if (url.startsWith("/uploads")) {
+      const baseUrl = API_URL.replace(/\/api$/, "");
+      return `${baseUrl}${url}`;
+    }
+    return url;
+  };
+
   // Filtered Lists
   const filteredInquiries = inquiries.filter((item) => {
     const matchesStatus = inquiryStatusFilter === "All" || item.status === inquiryStatusFilter;
@@ -234,6 +320,19 @@ export default function AdminDashboard() {
       item.message.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesStatus && matchesSearch;
   });
+
+  const inquiryStatusOptions = [
+    { label: "New", value: "New", colorClass: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+    { label: "In Touch", value: "In Touch", colorClass: "bg-blue-100 text-blue-800 border-blue-300" },
+    { label: "Closed", value: "Closed", colorClass: "bg-gray-100 text-gray-700 border-gray-300" },
+  ];
+
+  const applicationStatusOptions = [
+    { label: "Pending", value: "Pending", colorClass: "bg-amber-100 text-amber-800 border-amber-300" },
+    { label: "Reviewed", value: "Reviewed", colorClass: "bg-blue-100 text-blue-800 border-blue-300" },
+    { label: "Shortlisted", value: "Shortlisted", colorClass: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+    { label: "Rejected", value: "Rejected", colorClass: "bg-red-100 text-red-800 border-red-300" },
+  ];
 
   return (
     <div className="min-h-screen bg-[#F4F7F2] font-sans flex flex-col text-[#112D16]">
@@ -264,53 +363,53 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      {/* Main Admin Content Container */}
-      <main className="flex-grow p-6 md:p-10 max-w-[1400px] mx-auto w-full">
+      {/* Main Admin Content Container (Expanded Full Width with Minimal Side Padding) */}
+      <main className="flex-grow p-4 sm:p-6 md:p-8 max-w-[1750px] mx-auto w-full">
         {/* Top Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-          <div className="bg-white border border-[#112D16]/10 p-5 rounded-2xl shadow-sm flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#112D16]/10 rounded-xl flex items-center justify-center text-[#112D16]">
-              <MessageSquare className="w-6 h-6" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="bg-white border border-[#112D16]/10 p-4.5 rounded-2xl shadow-sm flex items-center gap-4">
+            <div className="w-11 h-11 bg-[#112D16]/10 rounded-xl flex items-center justify-center text-[#112D16] shrink-0">
+              <MessageSquare className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#112D16]/60">Total Inquiries</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#112D16]/60">Total Inquiries</p>
               <h3 className="text-2xl font-bold text-[#112D16]">{stats.totalInquiries}</h3>
             </div>
           </div>
 
-          <div className="bg-white border border-[#112D16]/10 p-5 rounded-2xl shadow-sm flex items-center gap-4">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-700">
-              <Mail className="w-6 h-6" />
+          <div className="bg-white border border-[#112D16]/10 p-4.5 rounded-2xl shadow-sm flex items-center gap-4">
+            <div className="w-11 h-11 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-700 shrink-0">
+              <Mail className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#112D16]/60">New Leads</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#112D16]/60">New Leads</p>
               <h3 className="text-2xl font-bold text-emerald-700">{stats.newInquiries}</h3>
             </div>
           </div>
 
-          <div className="bg-white border border-[#112D16]/10 p-5 rounded-2xl shadow-sm flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#112D16]/10 rounded-xl flex items-center justify-center text-[#112D16]">
-              <Briefcase className="w-6 h-6" />
+          <div className="bg-white border border-[#112D16]/10 p-4.5 rounded-2xl shadow-sm flex items-center gap-4">
+            <div className="w-11 h-11 bg-[#112D16]/10 rounded-xl flex items-center justify-center text-[#112D16] shrink-0">
+              <Briefcase className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#112D16]/60">Job Applications</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#112D16]/60">Job Applications</p>
               <h3 className="text-2xl font-bold text-[#112D16]">{stats.totalApplications}</h3>
             </div>
           </div>
 
-          <div className="bg-white border border-[#112D16]/10 p-5 rounded-2xl shadow-sm flex items-center gap-4">
-            <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700">
-              <Users className="w-6 h-6" />
+          <div className="bg-white border border-[#112D16]/10 p-4.5 rounded-2xl shadow-sm flex items-center gap-4">
+            <div className="w-11 h-11 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 shrink-0">
+              <Users className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#112D16]/60">Pending Applicants</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-[#112D16]/60">Pending Applicants</p>
               <h3 className="text-2xl font-bold text-amber-700">{stats.pendingApplications}</h3>
             </div>
           </div>
         </div>
 
-        {/* Navigation Tabs & Controls Header */}
-        <div className="bg-white border border-[#112D16]/10 rounded-2xl p-4 mb-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        {/* Navigation Tabs & Integrated Search/Filter Control Panel */}
+        <div className="bg-white border border-[#112D16]/10 rounded-2xl p-3.5 mb-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex bg-[#112D16]/5 p-1 rounded-xl">
             <button
               onClick={() => setActiveTab("inquiries")}
@@ -337,61 +436,61 @@ export default function AdminDashboard() {
             </button>
           </div>
 
-          {/* Search & Filters */}
+          {/* Integrated Search & Custom Styled Filter Dropdowns */}
           <div className="flex items-center gap-3">
-            <div className="relative flex-grow md:w-64">
-              <Search className="w-4 h-4 text-[#112D16]/40 absolute left-3 top-3" />
+            <div className="relative flex-grow sm:w-72">
+              <Search className="w-4 h-4 text-[#112D16]/40 absolute left-3 top-2.5" />
               <input
                 type="text"
-                placeholder="Search name, email, service..."
+                placeholder="Search by name, email, service..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-[#112D16]/5 border border-[#112D16]/10 rounded-xl text-xs font-semibold text-[#112D16] focus:outline-none focus:ring-2 focus:ring-[#112D16]/20"
               />
             </div>
 
-            {/* Status Filter */}
+            {/* Custom Styled Filter Dropdown (No native dark OS selects) */}
             {activeTab === "inquiries" ? (
-              <select
+              <StatusDropdown
                 value={inquiryStatusFilter}
-                onChange={(e) => setInquiryStatusFilter(e.target.value)}
-                className="py-2 px-3 bg-[#112D16]/5 border border-[#112D16]/10 rounded-xl text-xs font-semibold text-[#112D16] focus:outline-none"
-              >
-                <option value="All">All Status</option>
-                <option value="New">New</option>
-                <option value="In Touch">In Touch</option>
-                <option value="Closed">Closed</option>
-              </select>
+                options={[
+                  { label: "All Status", value: "All", colorClass: "bg-[#112D16]/10 text-[#112D16] border-[#112D16]/20" },
+                  { label: "New", value: "New", colorClass: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+                  { label: "In Touch", value: "In Touch", colorClass: "bg-blue-100 text-blue-800 border-blue-300" },
+                  { label: "Closed", value: "Closed", colorClass: "bg-gray-100 text-gray-700 border-gray-300" },
+                ]}
+                onChange={(val) => setInquiryStatusFilter(val)}
+              />
             ) : (
-              <select
+              <StatusDropdown
                 value={applicationStatusFilter}
-                onChange={(e) => setApplicationStatusFilter(e.target.value)}
-                className="py-2 px-3 bg-[#112D16]/5 border border-[#112D16]/10 rounded-xl text-xs font-semibold text-[#112D16] focus:outline-none"
-              >
-                <option value="All">All Status</option>
-                <option value="Pending">Pending</option>
-                <option value="Reviewed">Reviewed</option>
-                <option value="Shortlisted">Shortlisted</option>
-                <option value="Rejected">Rejected</option>
-              </select>
+                options={[
+                  { label: "All Status", value: "All", colorClass: "bg-[#112D16]/10 text-[#112D16] border-[#112D16]/20" },
+                  { label: "Pending", value: "Pending", colorClass: "bg-amber-100 text-amber-800 border-amber-300" },
+                  { label: "Reviewed", value: "Reviewed", colorClass: "bg-blue-100 text-blue-800 border-blue-300" },
+                  { label: "Shortlisted", value: "Shortlisted", colorClass: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+                  { label: "Rejected", value: "Rejected", colorClass: "bg-red-100 text-red-800 border-red-300" },
+                ]}
+                onChange={(val) => setApplicationStatusFilter(val)}
+              />
             )}
           </div>
         </div>
 
-        {/* Tab 1: Contact Inquiries Table */}
+        {/* Tab 1: Contact Inquiries Data Table */}
         {activeTab === "inquiries" && (
           <div className="bg-white border border-[#112D16]/10 rounded-2xl shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse min-w-[900px]">
                 <thead>
                   <tr className="bg-[#112D16]/5 text-[#112D16]/70 text-[11px] font-bold uppercase tracking-wider border-b border-[#112D16]/10">
-                    <th className="py-3.5 px-5">ID</th>
+                    <th className="py-3.5 px-5 w-16">ID</th>
                     <th className="py-3.5 px-5">Client Name</th>
                     <th className="py-3.5 px-5">Contact Details</th>
                     <th className="py-3.5 px-5">Service / Interest</th>
                     <th className="py-3.5 px-5">Status</th>
                     <th className="py-3.5 px-5">Date</th>
-                    <th className="py-3.5 px-5 text-right">Actions</th>
+                    <th className="py-3.5 px-5 text-right w-24">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#112D16]/10 text-xs">
@@ -435,21 +534,11 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                         <td className="py-4 px-5">
-                          <select
+                          <StatusDropdown
                             value={item.status}
-                            onChange={(e) => updateInquiryStatus(item.id, e.target.value)}
-                            className={`py-1 px-2.5 rounded-full text-[11px] font-bold border focus:outline-none cursor-pointer ${
-                              item.status === "New"
-                                ? "bg-emerald-100 text-emerald-800 border-emerald-300"
-                                : item.status === "In Touch"
-                                ? "bg-blue-100 text-blue-800 border-blue-300"
-                                : "bg-gray-100 text-gray-700 border-gray-300"
-                            }`}
-                          >
-                            <option value="New">New</option>
-                            <option value="In Touch">In Touch</option>
-                            <option value="Closed">Closed</option>
-                          </select>
+                            options={inquiryStatusOptions}
+                            onChange={(val) => updateInquiryStatus(item.id, val)}
+                          />
                         </td>
                         <td className="py-4 px-5 text-[#112D16]/60 font-medium whitespace-nowrap">
                           {new Date(item.created_at).toLocaleDateString("en-IN", {
@@ -485,20 +574,20 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        {/* Tab 2: Job Applications Table */}
+        {/* Tab 2: Job Applications Data Table */}
         {activeTab === "applications" && (
           <div className="bg-white border border-[#112D16]/10 rounded-2xl shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse min-w-[950px]">
                 <thead>
                   <tr className="bg-[#112D16]/5 text-[#112D16]/70 text-[11px] font-bold uppercase tracking-wider border-b border-[#112D16]/10">
-                    <th className="py-3.5 px-5">ID</th>
+                    <th className="py-3.5 px-5 w-16">ID</th>
                     <th className="py-3.5 px-5">Applicant Name</th>
                     <th className="py-3.5 px-5">Applied Position</th>
-                    <th className="py-3.5 px-5">Contact & Link</th>
+                    <th className="py-3.5 px-5">Resume / Portfolio File</th>
                     <th className="py-3.5 px-5">Status</th>
                     <th className="py-3.5 px-5">Date</th>
-                    <th className="py-3.5 px-5 text-right">Actions</th>
+                    <th className="py-3.5 px-5 text-right w-24">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#112D16]/10 text-xs">
@@ -509,90 +598,76 @@ export default function AdminDashboard() {
                       </td>
                     </tr>
                   ) : (
-                    filteredApplications.map((item) => (
-                      <tr key={item.id} className="hover:bg-[#112D16]/2 transition-colors">
-                        <td className="py-4 px-5 font-bold text-[#112D16]/50">#{item.id}</td>
-                        <td className="py-4 px-5 font-bold text-[#112D16]">
-                          {item.name}
-                          {item.experience && (
-                            <span className="block text-[10px] font-semibold text-[#112D16]/60 mt-0.5">
-                              Exp: {item.experience}
-                            </span>
-                          )}
-                        </td>
-                        <td className="py-4 px-5">
-                          <span className="px-2.5 py-1 bg-[#112D16]/10 text-[#112D16] font-semibold rounded-md text-[11px]">
-                            {item.position}
-                          </span>
-                        </td>
-                        <td className="py-4 px-5">
-                          <div className="flex items-center gap-1.5 text-[#112D16]/90 font-medium">
-                            <Mail className="w-3.5 h-3.5 text-[#112D16]/40 shrink-0" />
-                            <a href={`mailto:${item.email}`} className="hover:underline">
-                              {item.email}
-                            </a>
-                          </div>
-                          {item.portfolio_url && (
-                            <div className="flex items-center gap-1 text-emerald-700 font-semibold mt-1">
-                              <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                              <a
-                                href={item.portfolio_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:underline truncate max-w-[150px]"
-                              >
-                                View Portfolio
+                    filteredApplications.map((item) => {
+                      const fileUrl = getFileUrl(item.portfolio_url);
+                      return (
+                        <tr key={item.id} className="hover:bg-[#112D16]/2 transition-colors">
+                          <td className="py-4 px-5 font-bold text-[#112D16]/50">#{item.id}</td>
+                          <td className="py-4 px-5 font-bold text-[#112D16]">
+                            {item.name}
+                            <div className="flex items-center gap-1 text-[11px] font-normal text-[#112D16]/70 mt-0.5">
+                              <Mail className="w-3 h-3 shrink-0" />
+                              <a href={`mailto:${item.email}`} className="hover:underline">
+                                {item.email}
                               </a>
                             </div>
-                          )}
-                        </td>
-                        <td className="py-4 px-5">
-                          <select
-                            value={item.status}
-                            onChange={(e) => updateApplicationStatus(item.id, e.target.value)}
-                            className={`py-1 px-2.5 rounded-full text-[11px] font-bold border focus:outline-none cursor-pointer ${
-                              item.status === "Pending"
-                                ? "bg-amber-100 text-amber-800 border-amber-300"
-                                : item.status === "Reviewed"
-                                ? "bg-blue-100 text-blue-800 border-blue-300"
-                                : item.status === "Shortlisted"
-                                ? "bg-emerald-100 text-emerald-800 border-emerald-300"
-                                : "bg-red-100 text-red-800 border-red-300"
-                            }`}
-                          >
-                            <option value="Pending">Pending</option>
-                            <option value="Reviewed">Reviewed</option>
-                            <option value="Shortlisted">Shortlisted</option>
-                            <option value="Rejected">Rejected</option>
-                          </select>
-                        </td>
-                        <td className="py-4 px-5 text-[#112D16]/60 font-medium whitespace-nowrap">
-                          {new Date(item.created_at).toLocaleDateString("en-IN", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })}
-                        </td>
-                        <td className="py-4 px-5 text-right whitespace-nowrap">
-                          <div className="flex items-center justify-end gap-2">
-                            <button
-                              onClick={() => setSelectedApplication(item)}
-                              className="p-1.5 bg-[#112D16]/10 hover:bg-[#112D16] text-[#112D16] hover:text-white rounded-lg transition-all cursor-pointer"
-                              title="Read Cover Letter"
-                            >
-                              <Eye className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => deleteApplication(item.id)}
-                              className="p-1.5 bg-red-100 hover:bg-red-600 text-red-700 hover:text-white rounded-lg transition-all cursor-pointer"
-                              title="Delete Application"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))
+                          </td>
+                          <td className="py-4 px-5">
+                            <span className="px-2.5 py-1 bg-[#112D16]/10 text-[#112D16] font-semibold rounded-md text-[11px]">
+                              {item.position}
+                            </span>
+                          </td>
+                          <td className="py-4 px-5">
+                            {fileUrl ? (
+                              <a
+                                href={fileUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-lg text-xs font-bold transition-all shadow-sm group"
+                              >
+                                <FileText className="w-3.5 h-3.5 text-emerald-700" />
+                                <span>View / Download Resume</span>
+                                <ExternalLink className="w-3 h-3 text-emerald-600 group-hover:translate-x-0.5 transition-transform" />
+                              </a>
+                            ) : (
+                              <span className="text-[#112D16]/40 italic text-[11px]">No file attached</span>
+                            )}
+                          </td>
+                          <td className="py-4 px-5">
+                            <StatusDropdown
+                              value={item.status}
+                              options={applicationStatusOptions}
+                              onChange={(val) => updateApplicationStatus(item.id, val)}
+                            />
+                          </td>
+                          <td className="py-4 px-5 text-[#112D16]/60 font-medium whitespace-nowrap">
+                            {new Date(item.created_at).toLocaleDateString("en-IN", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })}
+                          </td>
+                          <td className="py-4 px-5 text-right whitespace-nowrap">
+                            <div className="flex items-center justify-end gap-2">
+                              <button
+                                onClick={() => setSelectedApplication(item)}
+                                className="p-1.5 bg-[#112D16]/10 hover:bg-[#112D16] text-[#112D16] hover:text-white rounded-lg transition-all cursor-pointer"
+                                title="Read Cover Note"
+                              >
+                                <Eye className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={() => deleteApplication(item.id)}
+                                className="p-1.5 bg-red-100 hover:bg-red-600 text-red-700 hover:text-white rounded-lg transition-all cursor-pointer"
+                                title="Delete Application"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })
                   )}
                 </tbody>
               </table>
@@ -629,14 +704,14 @@ export default function AdminDashboard() {
               <div className="space-y-3 text-xs mb-6">
                 <div className="flex items-center gap-2 text-[#112D16]/80 font-medium">
                   <Mail className="w-4 h-4 text-[#112D16]/40 shrink-0" />
-                  <a href={`mailto:${selectedInquiry.email}`} className="hover:underline">
+                  <a href={`mailto:${selectedInquiry.email}`} className="hover:underline font-bold">
                     {selectedInquiry.email}
                   </a>
                 </div>
                 {selectedInquiry.phone && (
                   <div className="flex items-center gap-2 text-[#112D16]/80 font-medium">
                     <Phone className="w-4 h-4 text-[#112D16]/40 shrink-0" />
-                    <a href={`tel:${selectedInquiry.phone}`} className="hover:underline">
+                    <a href={`tel:${selectedInquiry.phone}`} className="hover:underline font-bold">
                       {selectedInquiry.phone}
                     </a>
                   </div>
@@ -670,7 +745,7 @@ export default function AdminDashboard() {
         )}
       </AnimatePresence>
 
-      {/* Application Detail Modal */}
+      {/* Application Detail Modal (With Prominent File Download Button) */}
       <AnimatePresence>
         {selectedApplication && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
@@ -698,29 +773,34 @@ export default function AdminDashboard() {
               <div className="space-y-3 text-xs mb-6">
                 <div className="flex items-center gap-2 text-[#112D16]/80 font-medium">
                   <Mail className="w-4 h-4 text-[#112D16]/40 shrink-0" />
-                  <a href={`mailto:${selectedApplication.email}`} className="hover:underline">
+                  <a href={`mailto:${selectedApplication.email}`} className="hover:underline font-bold">
                     {selectedApplication.email}
                   </a>
                 </div>
-                {selectedApplication.portfolio_url && (
-                  <div className="flex items-center gap-2 text-emerald-800 font-bold">
-                    <ExternalLink className="w-4 h-4 shrink-0" />
+
+                {/* REAL RESUME FILE VIEW/DOWNLOAD BUTTON */}
+                {getFileUrl(selectedApplication.portfolio_url) ? (
+                  <div className="mt-2">
                     <a
-                      href={selectedApplication.portfolio_url}
+                      href={getFileUrl(selectedApplication.portfolio_url)!}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:underline"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-all shadow-md cursor-pointer"
                     >
-                      {selectedApplication.portfolio_url}
+                      <Download className="w-4 h-4" />
+                      <span>Open / Download Resume File</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
+                ) : (
+                  <div className="text-xs text-[#112D16]/50 italic">No resume file attached</div>
                 )}
               </div>
 
               {selectedApplication.message && (
                 <div className="bg-[#112D16]/5 border border-[#112D16]/10 p-4 rounded-2xl mb-6">
                   <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#112D16]/60 mb-2">
-                    Applicant Cover Note / Message
+                    Applicant Cover Note
                   </h4>
                   <p className="text-sm text-[#112D16] font-normal leading-relaxed whitespace-pre-line">
                     {selectedApplication.message}
