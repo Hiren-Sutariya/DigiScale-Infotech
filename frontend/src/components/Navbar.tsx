@@ -124,7 +124,7 @@ export default function Navbar() {
                 <button
                   aria-haspopup="true"
                   aria-expanded={activeDropdown === name}
-                  className="flex items-center gap-1 text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors py-2"
+                  className="flex items-center gap-1 text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors py-2 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent outline-none focus:outline-none ring-0 focus:ring-0 border-0"
                 >
                   {name === "capabilities" ? "Capabilities" : name === "solutions" ? "Solutions" : "Tech Stack"}
                   <ChevronDown

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { ArrowUpRight } from "lucide-react";
 
 import project1 from "@/assets/Portfolio/project1.webp";
 import project2 from "@/assets/Portfolio/project2.webp";
@@ -48,6 +49,16 @@ export const projects = [
     result: "Enhanced the brand's online presence and delivered a smooth shopping experience that builds customer confidence.",
   },
   {
+    image: project1,
+    industry: "Web Application",
+    name: "Max Water",
+    link: "https://maxwater.in",
+    stack: ["React", "Node.js", "Tailwind CSS", "Vite", "Framer Motion"],
+    challenge: "Max Water needed a high-converting, modern landing page and web presence to showcase their advanced water purification systems, communicate product purity standards, and drive direct customer inquiries.",
+    solution: "Engineered a lightning-fast, visually striking landing page with interactive product features, clear value propositions, trust badges, and an integrated lead generation workflow.",
+    result: "Boosted direct lead inquiries by 45%, reduced page load time to under 1 second, and established a trusted digital brand presence at maxwater.in.",
+  },
+  {
     image: project3,
     industry: "Custom Software",
     name: "4 Ever Interior Gallery",
@@ -58,7 +69,7 @@ export const projects = [
   },
 ];
 
-const categories = ["All", "Shopify Store", "Custom Software", "Design & Identity"];
+const categories = ["All", "Shopify Store", "Web Application", "Custom Software", "Design & Identity"];
 
 export default function CaseStudies() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -79,14 +90,14 @@ export default function CaseStudies() {
 
       {/* Hero Header Section with Outlined WORK Text Overlay */}
       <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-20 bg-[#C6D6B1] overflow-hidden border-b border-[#112D16]/12">
-        
+
         {/* Huge Outlined WORK Title in Background */}
         <div className="absolute inset-x-0 top-24 bottom-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-          <span 
-            className="text-[16vw] font-black uppercase text-transparent tracking-[0.2em] leading-none whitespace-nowrap" 
-            style={{ 
-              WebkitTextStroke: "1px rgba(17,45,22,0.08)", 
-              fontFamily: 'Impact, sans-serif' 
+          <span
+            className="text-[16vw] font-black uppercase text-transparent tracking-[0.2em] leading-none whitespace-nowrap"
+            style={{
+              WebkitTextStroke: "1px rgba(17,45,22,0.08)",
+              fontFamily: 'Impact, sans-serif'
             }}
           >
             PORTFOLIO
@@ -94,24 +105,24 @@ export default function CaseStudies() {
         </div>
 
         <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-4 px-4 py-1 rounded-full border border-[#112D16]/20 bg-white/50 text-[#112D16] text-xs font-bold uppercase tracking-wider"
           >
             Our Work
           </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-[#112D16] uppercase tracking-wider mb-6"
           >
             Projects That Deliver Results
           </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-lg md:text-xl text-[#112D16]/80 font-medium leading-relaxed max-w-2xl mx-auto mb-8"
           >
@@ -128,11 +139,10 @@ export default function CaseStudies() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 ${
-                  activeCategory === category
+                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 ${activeCategory === category
                     ? "bg-[#112D16] text-[#C6D6B1] shadow-md"
                     : "text-[#112D16]/75 hover:text-[#112D16] hover:bg-[#C6D6B1]/15"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -144,9 +154,9 @@ export default function CaseStudies() {
       {/* Projects Cards Grid Section */}
       <section className="pt-6 pb-24 bg-background">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          
-          <motion.div 
-            layout 
+
+          <motion.div
+            layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             <AnimatePresence mode="popLayout">
@@ -161,31 +171,75 @@ export default function CaseStudies() {
                   transition={{ duration: 0.45, ease: "easeOut" }}
                   className="bg-white border border-[#112D16]/10 rounded-2xl overflow-hidden group hover:shadow-[0_20px_50px_rgba(17,45,22,0.06)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between shadow-[0_8px_30px_rgba(17,45,22,0.02)]"
                 >
-                  {/* Aspect ratio zoom-in cover image */}
-                  <div className="aspect-video overflow-hidden bg-accent/25 relative border-b border-[#112D16]/10">
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-black uppercase tracking-wider rounded-full shadow-sm">
-                        {project.industry}
-                      </span>
+                  {/* Aspect ratio cover image (clickable if project has link) */}
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block aspect-video overflow-hidden bg-accent/25 relative border-b border-[#112D16]/10 group/img cursor-pointer"
+                      title={`Visit ${project.name} live website`}
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-black uppercase tracking-wider rounded-full shadow-sm">
+                          {project.industry}
+                        </span>
+                      </div>
+                      {/* Hover Indicator Overlay */}
+                      <div className="absolute inset-0 bg-[#112D16]/25 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="px-4 py-2 bg-white/95 backdrop-blur-md text-[#112D16] text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
+                          Visit Live Site <ArrowUpRight className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="aspect-video overflow-hidden bg-accent/25 relative border-b border-[#112D16]/10">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-black uppercase tracking-wider rounded-full shadow-sm">
+                          {project.industry}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Details block inside card */}
                   <div className="p-8 flex-grow flex flex-col justify-between">
                     <div>
-                      <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide mb-6">
-                        {project.name}
-                      </h2>
+                      <div className="mb-6">
+                        {project.link ? (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 group/title"
+                          >
+                            <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide group-hover/title:text-[#054418] transition-colors">
+                              {project.name}
+                            </h2>
+                            <ArrowUpRight className="w-5 h-5 text-[#112D16]/50 group-hover/title:text-[#112D16] group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all" />
+                          </a>
+                        ) : (
+                          <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide">
+                            {project.name}
+                          </h2>
+                        )}
+                      </div>
 
                       {/* Clean left-bordered corporate description logs */}
                       <div className="space-y-5 mb-8 text-[14px]">
-                        
+
                         <div className="border-l-2 border-[#112D16]/20 pl-4">
                           <span className="font-bold text-[#112D16]/50 block mb-1 uppercase tracking-wider text-[11px]">
                             Challenge
@@ -219,8 +273,8 @@ export default function CaseStudies() {
                     {/* Stack tags at the bottom */}
                     <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#112D16]/10">
                       {project.stack.map(tech => (
-                        <span 
-                          key={tech} 
+                        <span
+                          key={tech}
                           className="px-3 py-1 bg-[#112D16]/5 border border-[#112D16]/10 text-[#112D16] rounded-lg text-xs font-semibold"
                         >
                           {tech}
