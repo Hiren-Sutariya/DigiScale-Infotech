@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (add any if needed)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Crawl delay (optional, be gentle on server)
+Crawl-delay: 5
+
+# Sitemap location
+Sitemap: https://digiscaleinfotech.com/sitemap.xml
