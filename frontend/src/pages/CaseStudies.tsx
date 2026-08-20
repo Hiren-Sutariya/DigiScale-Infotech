@@ -20,9 +20,9 @@ export const projects = [
     name: "SkyParrow",
     link: "https://skyparrow.com/",
     stack: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
-    challenge: "Build a premium Shopify store for a growing saree and women's fashion brand with a smooth shopping experience.",
-    solution: "Designed and developed a fast, responsive Shopify store with a clean UI, optimized product pages, and a seamless checkout experience.",
-    result: "Better Customer Experience, Improved Brand Presence, Ready for Online Growth",
+    challenge: "Needed a high-converting Shopify store with a smooth mobile shopping experience.",
+    solution: "Designed a fast, responsive storefront with optimized product pages & seamless checkout.",
+    result: "Enhanced brand presence & accelerated online customer growth.",
   },
   {
     image: project5,
@@ -30,9 +30,9 @@ export const projects = [
     name: "TexaFlow Textile ERP",
     link: "",
     stack: ["C#", "ASP.NET", "SQL Server", "Azure"],
-    challenge: "Managing billing, inventory, and daily business operations manually was time-consuming and prone to errors.",
-    solution: "Developed a custom business management software to digitize billing, inventory tracking, and daily operations through a single, easy-to-use system.",
-    result: "Streamlined daily operations, reduced manual work, and improved overall business efficiency.",
+    challenge: "Manual billing, inventory tracking, and daily operations were slow & error-prone.",
+    solution: "Built a custom ERP system to digitize billing, inventory, and operations in one place.",
+    result: "Streamlined daily operations & reduced manual work effort by 60%.",
   },
   {
     image: project2,
@@ -40,9 +40,9 @@ export const projects = [
     name: "Stienhardt Stone",
     link: "https://stienhardt.com",
     stack: ["Figma", "Adobe Illustrator", "Photoshop"],
-    challenge: "Create a premium website that reflects the brand's craftsmanship, trust, and luxury identity.",
-    solution: "Designed a modern, elegant website with a refined user experience to showcase the brand and its products professionally.",
-    result: "Strengthened the brand's online presence and delivered a premium digital experience for customers.",
+    challenge: "Create a digital identity that reflects luxury craftsmanship, trust, and stone quality.",
+    solution: "Designed a sleek, elegant website UI to showcase luxury stone products professionally.",
+    result: "Strengthened digital presence & established premium customer trust.",
   },
   {
     image: project4,
@@ -50,9 +50,9 @@ export const projects = [
     name: "ByRavina",
     link: "https://byravina.com/",
     stack: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
-    challenge: "Build a premium Shopify store that reflects the brand's style and provides a seamless shopping experience for customers.",
-    solution: "Designed and developed a modern Shopify store with a clean interface, responsive layout, and an intuitive shopping journey.",
-    result: "Enhanced the brand's online presence and delivered a smooth shopping experience that builds customer confidence.",
+    challenge: "Build a premium Shopify store showcasing custom boutique fashion collections.",
+    solution: "Developed a modern Shopify site with clean layout & intuitive shopping journey.",
+    result: "Delivered a smooth shopping experience that increased customer confidence.",
   },
   {
     image: project6,
@@ -60,9 +60,9 @@ export const projects = [
     name: "Max Water",
     link: "https://maxwater.in",
     stack: ["React", "Node.js", "Tailwind CSS", "Vite", "Framer Motion"],
-    challenge: "Max Water needed a high-converting, modern landing page and web presence to showcase their advanced water purification systems, communicate product purity standards, and drive direct customer inquiries.",
-    solution: "Engineered a lightning-fast, visually striking landing page with interactive product features, clear value propositions, trust badges, and an integrated lead generation workflow.",
-    result: "Boosted direct lead inquiries by 45%, reduced page load time to under 1 second, and established a trusted digital brand presence at maxwater.in.",
+    challenge: "Needed a high-converting web presence to showcase water purifiers & capture leads.",
+    solution: "Built a lightning-fast landing page with interactive features & lead workflows.",
+    result: "Boosted direct inquiries by 45% with sub-second page loading speed.",
   },
   {
     image: project7,
@@ -70,18 +70,18 @@ export const projects = [
     name: "Lifo India",
     link: "https://lifoindia.com",
     stack: ["React", "Node.js", "Tailwind CSS", "TypeScript", "Vite"],
-    challenge: "Lifo India needed a modern B2B supplier digital portal to showcase their industrial product catalog, enable wholesale quote requests, and streamline business inquiries for B2B buyers across India.",
-    solution: "Engineered a high-performance B2B catalog platform featuring structured product categories, bulk inquiry workflows, instant quote requests, and responsive product search.",
-    result: "Increased B2B client inquiries by 60%, simplified product discovery for bulk buyers, and established a trusted digital presence at lifoindia.com.",
+    challenge: "Required a B2B portal for industrial product catalogs & wholesale quote requests.",
+    solution: "Engineered a high-performance B2B catalog platform with instant inquiry workflows.",
+    result: "Increased B2B client inquiries & wholesale requests by 60%.",
   },
   {
     image: project3,
     industry: "Custom Software",
     name: "4 Ever Interior Gallery",
     stack: ["Next.js", "Python", "FastAPI", "PostgreSQL", "AWS"],
-    challenge: "Managing and editing hundreds of product images manually was slow and time-consuming.",
-    solution: "Developed a streamlined image management system with batch editing and automated optimization.",
-    result: "Reduced image management time by 60% and improved product presentation quality.",
+    challenge: "Managing hundreds of high-res interior design images was slow & time-consuming.",
+    solution: "Developed a streamlined asset system with automated optimization & batch tools.",
+    result: "Reduced image handling time by 60% with instant visual rendering.",
   },
 ];
 
@@ -98,33 +98,24 @@ export default function CaseStudies() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <SEO
-        title="Case Studies"
-        description="Explore our portfolio of successful projects, including custom websites, Shopify stores, AI automation tools, and custom software systems."
+        title="Our Work & Case Studies | DigiScale Infotech"
+        description="Explore our portfolio of successful projects including custom web apps, Shopify stores, ERP systems, and AI automation solutions."
         path="/case-studies"
       />
       <Navbar />
 
-      {/* Hero Header Section with Outlined WORK Text Overlay */}
-      <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-20 bg-[#C6D6B1] overflow-hidden border-b border-[#112D16]/12">
-
-        {/* Huge Outlined WORK Title in Background */}
-        <div className="absolute inset-x-0 top-24 bottom-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-          <span
-            className="text-[16vw] font-black uppercase text-transparent tracking-[0.2em] leading-none whitespace-nowrap"
-            style={{
-              WebkitTextStroke: "1px rgba(17,45,22,0.08)",
-              fontFamily: 'Impact, sans-serif'
-            }}
-          >
-            PORTFOLIO
-          </span>
+      {/* Header Banner Section */}
+      <section className="pt-28 pb-6 bg-gradient-to-b from-[#112D16]/5 to-transparent relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <div className="absolute top-10 left-1/4 w-72 h-72 bg-[#C6D6B1]/40 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-[#112D16]/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-4 px-4 py-1 rounded-full border border-[#112D16]/20 bg-white/50 text-[#112D16] text-xs font-bold uppercase tracking-wider"
+            className="inline-block mb-3 px-4 py-1 rounded-full border border-[#112D16]/20 bg-white/50 text-[#112D16] text-xs font-bold uppercase tracking-wider"
           >
             Our Work
           </motion.div>
@@ -132,7 +123,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-[#112D16] tracking-tight mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D16] tracking-tight mb-4"
           >
             Projects That Deliver Results
           </motion.h1>
@@ -140,7 +131,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg text-[#112D16]/80 font-normal leading-relaxed max-w-2xl mx-auto mb-8"
+            className="text-sm md:text-base text-[#112D16]/80 font-normal leading-relaxed max-w-2xl mx-auto mb-4"
           >
             Explore how we help tech startups, e-commerce brands, and enterprises transform their digital presence and scale faster.
           </motion.p>
@@ -148,14 +139,14 @@ export default function CaseStudies() {
       </section>
 
       {/* Categories Filter Tabs Section */}
-      <section className="pt-10 pb-4 bg-background">
+      <section className="pt-4 pb-2 bg-background">
         <div className="container mx-auto px-6 max-w-[1400px] flex justify-center">
-          <div className="flex flex-wrap gap-2.5 justify-center bg-[#C6D6B1]/10 border border-[#C6D6B1]/20 p-2 rounded-full">
+          <div className="flex flex-wrap gap-2 justify-center bg-[#C6D6B1]/10 border border-[#C6D6B1]/20 p-1.5 rounded-full">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${activeCategory === category
+                className={`px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${activeCategory === category
                   ? "bg-[#112D16] text-[#C6D6B1] shadow-md"
                   : "text-[#112D16]/75 hover:text-[#112D16] hover:bg-[#C6D6B1]/15"
                   }`}
@@ -168,12 +159,12 @@ export default function CaseStudies() {
       </section>
 
       {/* Projects Cards Grid Section */}
-      <section className="pt-6 pb-24 bg-background">
+      <section className="pt-4 pb-20 bg-background">
         <div className="container mx-auto px-6 max-w-[1400px]">
 
           <motion.div
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
@@ -202,14 +193,14 @@ export default function CaseStudies() {
                         className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700"
                         loading="lazy"
                       />
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="px-2.5 py-1 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
                           {project.industry}
                         </span>
                       </div>
                       {/* Hover Indicator Overlay */}
                       <div className="absolute inset-0 bg-[#112D16]/25 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span className="px-4 py-2 bg-white/95 backdrop-blur-md text-[#112D16] text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
+                        <span className="px-3.5 py-1.5 bg-white/95 backdrop-blur-md text-[#112D16] text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
                           Visit Live Site <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
@@ -222,8 +213,8 @@ export default function CaseStudies() {
                         className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                         loading="lazy"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
                           {project.industry}
                         </span>
                       </div>
@@ -231,54 +222,54 @@ export default function CaseStudies() {
                   )}
 
                   {/* Details block inside card */}
-                  <div className="p-8 flex-grow flex flex-col justify-between">
+                  <div className="p-5 md:p-6 flex-grow flex flex-col justify-between">
                     <div>
-                      <div className="mb-6">
+                      <div className="mb-3.5">
                         {project.link ? (
                           <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 group/title"
+                            className="inline-flex items-center gap-1.5 group/title"
                           >
-                            <h2 className="text-xl font-bold text-[#112D16] group-hover/title:text-[#054418] transition-colors">
+                            <h2 className="text-lg font-bold text-[#112D16] group-hover/title:text-[#054418] transition-colors">
                               {project.name}
                             </h2>
                             <ArrowUpRight className="w-4 h-4 text-[#112D16]/50 group-hover/title:text-[#112D16] group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all" />
                           </a>
                         ) : (
-                          <h2 className="text-xl font-bold text-[#112D16]">
+                          <h2 className="text-lg font-bold text-[#112D16]">
                             {project.name}
                           </h2>
                         )}
                       </div>
 
                       {/* Clean left-bordered corporate description logs */}
-                      <div className="space-y-5 mb-8 text-[14px]">
+                      <div className="space-y-2.5 mb-4 text-[13px]">
 
-                        <div className="border-l-2 border-[#112D16]/20 pl-4">
-                          <span className="font-bold text-[#112D16]/50 block mb-1 uppercase tracking-wider text-[11px]">
+                        <div className="border-l-2 border-[#112D16]/20 pl-3">
+                          <span className="font-bold text-[#112D16]/50 block mb-0.5 uppercase tracking-wider text-[10px]">
                             Challenge
                           </span>
-                          <p className="text-[#112D16]/85 font-medium leading-relaxed">
+                          <p className="text-[#112D16]/85 font-medium leading-snug">
                             {project.challenge}
                           </p>
                         </div>
 
-                        <div className="border-l-2 border-[#112D16]/20 pl-4">
-                          <span className="font-bold text-[#112D16]/50 block mb-1 uppercase tracking-wider text-[11px]">
+                        <div className="border-l-2 border-[#112D16]/20 pl-3">
+                          <span className="font-bold text-[#112D16]/50 block mb-0.5 uppercase tracking-wider text-[10px]">
                             Solution
                           </span>
-                          <p className="text-[#112D16]/85 font-medium leading-relaxed">
+                          <p className="text-[#112D16]/85 font-medium leading-snug">
                             {project.solution}
                           </p>
                         </div>
 
-                        <div className="border-l-2 border-[#112D16]/30 pl-4">
-                          <span className="font-bold text-[#112D16] block mb-1 uppercase tracking-wider text-[11px]">
+                        <div className="border-l-2 border-[#112D16]/30 pl-3">
+                          <span className="font-bold text-[#112D16] block mb-0.5 uppercase tracking-wider text-[10px]">
                             Result
                           </span>
-                          <p className="text-[#112D16] font-bold leading-relaxed">
+                          <p className="text-[#112D16] font-bold leading-snug">
                             {project.result}
                           </p>
                         </div>
@@ -287,11 +278,11 @@ export default function CaseStudies() {
                     </div>
 
                     {/* Stack tags at the bottom */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#112D16]/10">
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#112D16]/10">
                       {project.stack.map(tech => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-[#112D16]/5 border border-[#112D16]/10 text-[#112D16] rounded-lg text-xs font-semibold"
+                          className="px-2.5 py-0.5 bg-[#112D16]/5 border border-[#112D16]/10 text-[#112D16] rounded-md text-[11px] font-semibold"
                         >
                           {tech}
                         </span>
