@@ -102,10 +102,10 @@ export default function ApplyJobModal({
             {/* Header */}
             <div className="px-5 sm:px-8 py-4 sm:py-5 border-b border-[#112D16]/10 flex items-center justify-between shrink-0 bg-white z-10">
               <div>
-                <h2 className="text-lg sm:text-xl font-black text-[#112D16] uppercase tracking-wide">
+                <h2 className="text-lg sm:text-xl font-bold text-[#112D16] uppercase tracking-wide">
                   Join The Team
                 </h2>
-                <p className="text-[12px] sm:text-[13px] font-bold text-[#112D16]/60 uppercase tracking-wider mt-0.5">
+                <p className="text-[12px] sm:text-[13px] font-medium text-[#112D16]/60 uppercase tracking-wider mt-0.5">
                   Apply for: <span className="text-[#112D16]">{jobTitle}</span>
                 </p>
               </div>
@@ -129,7 +129,7 @@ export default function ApplyJobModal({
                     {/* Left Column: Personal Inputs */}
                     <div className="space-y-4 sm:space-y-5">
                       <div>
-                        <label className="block text-[11px] font-black uppercase text-[#112D16]/60 tracking-wider mb-1.5">
+                        <label className="block text-[11px] font-semibold uppercase text-[#112D16]/60 tracking-wider mb-1.5">
                           Full Name <span className="text-red-500">*</span>
                         </label>
                         <Input
@@ -143,7 +143,7 @@ export default function ApplyJobModal({
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-black uppercase text-[#112D16]/60 tracking-wider mb-1.5">
+                        <label className="block text-[11px] font-semibold uppercase text-[#112D16]/60 tracking-wider mb-1.5">
                           Email Address <span className="text-red-500">*</span>
                         </label>
                         <Input
@@ -157,7 +157,7 @@ export default function ApplyJobModal({
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-black uppercase text-[#112D16]/60 tracking-wider mb-1.5">
+                        <label className="block text-[11px] font-semibold uppercase text-[#112D16]/60 tracking-wider mb-1.5">
                           Phone Number <span className="text-red-500">*</span>
                         </label>
                         <Input
@@ -174,7 +174,7 @@ export default function ApplyJobModal({
                     {/* Right Column: Links & Resume Upload */}
                     <div className="space-y-4 sm:space-y-5">
                       <div>
-                        <label className="block text-[11px] font-black uppercase text-[#112D16]/60 tracking-wider mb-1.5">
+                        <label className="block text-[11px] font-semibold uppercase text-[#112D16]/60 tracking-wider mb-1.5">
                           Portfolio / GitHub Link
                         </label>
                         <Input
@@ -187,7 +187,7 @@ export default function ApplyJobModal({
                       </div>
 
                       <div>
-                        <label className="block text-[11px] font-black uppercase text-[#112D16]/60 tracking-wider mb-1.5">
+                        <label className="block text-[11px] font-semibold uppercase text-[#112D16]/60 tracking-wider mb-1.5">
                           Upload Resume (PDF, DOCX) <span className="text-red-500">*</span>
                         </label>
                         
@@ -247,14 +247,14 @@ export default function ApplyJobModal({
                     type="button"
                     variant="ghost"
                     onClick={onClose}
-                    className="w-full sm:w-auto rounded-full px-6 font-bold hover:bg-[#112D16]/5 text-[#112D16] h-11"
+                    className="w-full sm:w-auto rounded-full px-6 font-medium hover:bg-[#112D16]/5 text-[#112D16] h-11"
                   >
                     Cancel
                   </Button>
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="w-full sm:w-auto bg-[#112D16] hover:bg-[#112D16]/90 text-white rounded-full px-8 font-black uppercase text-xs tracking-wider h-11 shadow-sm"
+                    className="w-full sm:w-auto bg-[#112D16] hover:bg-[#112D16]/90 text-white rounded-full px-8 font-bold uppercase text-xs tracking-wider h-11 shadow-sm"
                   >
                     {submitting ? (
                       <>
@@ -278,7 +278,7 @@ export default function ApplyJobModal({
                   <div className="w-16 h-16 bg-[#112D16]/10 text-[#112D16] rounded-full flex items-center justify-center mb-5">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-black text-[#112D16] uppercase tracking-wide mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#112D16] uppercase tracking-wide mb-3">
                     Application Submitted
                   </h3>
                   <p className="text-[#112D16]/75 font-medium max-w-md leading-relaxed text-sm mb-6">
@@ -289,7 +289,7 @@ export default function ApplyJobModal({
                       setSubmitted(false);
                       onClose();
                     }}
-                    className="w-full sm:w-auto bg-[#112D16] hover:bg-[#112D16]/90 text-white rounded-full px-10 font-black uppercase text-xs tracking-wider h-11"
+                    className="w-full sm:w-auto bg-[#112D16] hover:bg-[#112D16]/90 text-white rounded-full px-10 font-bold uppercase text-xs tracking-wider h-11"
                   >
                     Close Window
                   </Button>

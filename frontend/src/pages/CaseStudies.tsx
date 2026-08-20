@@ -188,7 +188,7 @@ export default function CaseStudies() {
                         loading="lazy"
                       />
                       <div className="absolute top-4 left-4 z-10">
-                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-black uppercase tracking-wider rounded-full shadow-sm">
+                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
                           {project.industry}
                         </span>
                       </div>
@@ -208,7 +208,7 @@ export default function CaseStudies() {
                         loading="lazy"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-black uppercase tracking-wider rounded-full shadow-sm">
+                        <span className="px-3 py-1.5 bg-[#112D16] text-[#C6D6B1] text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">
                           {project.industry}
                         </span>
                       </div>

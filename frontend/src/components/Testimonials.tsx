@@ -41,7 +41,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-black text-[#112D16] uppercase tracking-wider mb-3"
+              className="text-3xl md:text-4xl font-bold text-[#112D16] tracking-tight mb-3"
             >
               What Clients Say
             </motion.h2>
@@ -50,7 +50,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-[#112D16]/80 font-medium"
+              className="text-lg text-[#112D16]/80 font-normal"
             >
               Don't just take our word for it.
             </motion.p>

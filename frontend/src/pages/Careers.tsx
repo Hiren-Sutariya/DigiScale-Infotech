@@ -99,7 +99,7 @@ export default function Careers() {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-[#112D16] uppercase tracking-wider mb-6"
+            className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-[#112D16] tracking-tight mb-6"
           >
             Join Our Team & Shape the Future
           </motion.h1>
@@ -107,7 +107,7 @@ export default function Careers() {
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-lg md:text-xl text-[#112D16]/80 font-medium leading-relaxed max-w-2xl mx-auto mb-8"
+            className="text-lg md:text-xl text-[#112D16]/80 font-normal leading-relaxed max-w-2xl mx-auto mb-8"
           >
             We're looking for passionate developers, designers, and innovators to build world-class digital products.
           </motion.p>
@@ -119,7 +119,7 @@ export default function Careers() {
           >
             <Button 
               size="lg" 
-              className="rounded-full px-8 h-12 text-sm bg-[#112D16] text-[#C6D6B1] hover:bg-[#1a4020] font-bold tracking-wider uppercase shadow-md transition-all duration-300 cursor-pointer"
+              className="rounded-full px-8 h-12 text-sm bg-[#112D16] text-[#C6D6B1] hover:bg-[#1a4020] font-medium tracking-wider uppercase shadow-md transition-all duration-300 cursor-pointer"
               onClick={() => {
                 const el = document.getElementById("open-positions");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -136,7 +136,7 @@ export default function Careers() {
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide">
+            <h2 className="text-2xl font-bold text-[#112D16] uppercase tracking-wide">
               Job Openings
             </h2>
             <div className="h-0.5 w-12 bg-[#112D16] mt-2" />
@@ -153,7 +153,7 @@ export default function Careers() {
                 className="bg-white border border-[#112D16]/10 rounded-2xl p-6 lg:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-[0_8px_30px_rgba(17,45,22,0.02)] hover:shadow-[0_20px_50px_rgba(17,45,22,0.06)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex-grow">
-                  <h3 className="text-xl lg:text-2xl font-black text-[#112D16] uppercase tracking-wide mb-3">
+                  <h3 className="text-xl lg:text-2xl font-bold text-[#112D16] uppercase tracking-wide mb-3">
                     {job.title}
                   </h3>
 
@@ -199,10 +199,10 @@ export default function Careers() {
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-black text-[#112D16] uppercase tracking-wider mb-4">
+            <h2 className="text-3xl font-bold text-[#112D16] tracking-tight mb-4">
               Our Hiring Process
             </h2>
-            <p className="text-lg text-[#112D16]/70 font-medium">
+            <p className="text-lg text-[#112D16]/70 font-normal">
               A transparent, straight-to-the-point evaluation process to see if we are a mutual fit.
             </p>
           </div>
@@ -217,10 +217,10 @@ export default function Careers() {
                 transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
                 className="bg-white border border-[#112D16]/10 rounded-2xl p-8 flex flex-col justify-start relative hover:shadow-[0_16px_40px_rgba(17,45,22,0.04)] transition-all duration-300"
               >
-                <span className="text-[28px] font-black text-[#112D16]/15 mb-4 block leading-none">
+                <span className="text-[28px] font-bold text-[#112D16]/20 mb-4 block leading-none">
                   {item.number}
                 </span>
-                <h3 className="text-lg font-black text-[#112D16] uppercase tracking-wide mb-2 leading-none">
+                <h3 className="text-lg font-bold text-[#112D16] uppercase tracking-wide mb-2 leading-none">
                   {item.title}
                 </h3>
                 <p className="text-[#112D16]/75 text-[13.5px] font-medium leading-relaxed">

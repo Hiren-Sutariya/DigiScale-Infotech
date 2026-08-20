@@ -27,7 +27,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-black text-[#112D16] uppercase tracking-wider mb-4"
+            className="text-3xl md:text-4xl font-bold text-[#112D16] tracking-tight mb-4"
           >
             Our Development Process
           </motion.h2>
@@ -36,7 +36,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-[#112D16]/80 font-medium"
+            className="text-lg text-[#112D16]/80 font-normal"
           >
             Our proven process transforms ideas into successful products.
           </motion.p>
@@ -54,14 +54,14 @@ export default function Process() {
               className="relative bg-white/75 border border-[#112D16]/15 backdrop-blur-xl rounded-[24px] p-8 overflow-hidden group hover:bg-white/90 shadow-sm hover:shadow-md transition-all duration-300 z-10"
             >
               {/* Huge step number overlay in background */}
-              <div className="absolute -right-4 -top-6 text-[120px] font-black text-[#112D16]/[0.06] group-hover:text-[#112D16]/[0.1] transition-colors select-none leading-none z-0">
+              <div className="absolute -right-4 -top-6 text-[120px] font-bold text-[#112D16]/[0.06] group-hover:text-[#112D16]/[0.1] transition-colors select-none leading-none z-0">
                 {step.step}
               </div>
               <div className="relative z-10">
-                <span className="text-[13px] font-black uppercase text-[#112D16]/60 tracking-wider">
+                <span className="text-[13px] font-semibold uppercase text-[#112D16]/60 tracking-wider">
                   Step {step.step}
                 </span>
-                <h3 className="text-[19px] font-black text-[#112D16] uppercase mt-2 mb-3 tracking-wide">{step.title}</h3>
+                <h3 className="text-[19px] font-bold text-[#112D16] uppercase mt-2 mb-3 tracking-wide">{step.title}</h3>
                 <p className="text-[#112D16]/80 text-[14px] font-medium leading-relaxed">
                   {step.description}
                 </p>

@@ -11,7 +11,7 @@ function Character({ children, progress, range }: CharacterProps) {
   // Interpolate opacity from 0.15 (light sage/green) to 1.0 (solid forest green)
   const opacity = useTransform(progress, range, [0.15, 1]);
   return (
-    <motion.span style={{ opacity }} className="text-[#112D16] font-black uppercase tracking-tight">
+    <motion.span style={{ opacity }} className="text-[#112D16] font-bold tracking-tight">
       {children}
     </motion.span>
   );

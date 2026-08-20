@@ -72,7 +72,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
-          className="text-sm sm:text-base font-mono font-extrabold text-[#112D16] tracking-[0.25em] mb-4 uppercase"
+          className="text-sm sm:text-base font-mono font-semibold text-[#112D16] tracking-[0.25em] mb-4 uppercase"
         >
           Think Digital, Scale Smart
         </motion.p>
@@ -86,7 +86,7 @@ export default function Hero() {
         >
           We Build & Scale Your{" "}
           <br className="hidden md:block" />
-          <span className="relative inline-block text-[#054418] font-black underline decoration-[#054418]/40 underline-offset-8 min-h-[1.25em] md:min-h-[1.2em] w-full overflow-hidden">
+          <span className="relative inline-block text-[#054418] font-bold underline decoration-[#054418]/40 underline-offset-8 min-h-[1.25em] md:min-h-[1.2em] w-full overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
                 key={index}

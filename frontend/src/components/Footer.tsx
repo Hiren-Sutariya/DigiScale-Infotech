@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           {/* Simple minimalistic horizontal links */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 items-center justify-start lg:justify-end text-[14px] font-black uppercase tracking-wider text-[#112D16]/75">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 items-center justify-start lg:justify-end text-[14px] font-medium uppercase tracking-wider text-[#112D16]/80">
             <a href="/#services" className="hover:text-[#112D16] transition-colors">
               Services
             </a>
