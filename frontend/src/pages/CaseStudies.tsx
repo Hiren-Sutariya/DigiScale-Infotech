@@ -117,7 +117,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-[3.5rem] font-black text-[#112D16] uppercase tracking-wider mb-6"
+            className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-[#112D16] tracking-tight mb-6"
           >
             Projects That Deliver Results
           </motion.h1>
@@ -125,7 +125,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-lg md:text-xl text-[#112D16]/80 font-medium leading-relaxed max-w-2xl mx-auto mb-8"
+            className="text-base md:text-lg text-[#112D16]/80 font-normal leading-relaxed max-w-2xl mx-auto mb-8"
           >
             Explore how we help tech startups, e-commerce brands, and enterprises transform their digital presence and scale faster.
           </motion.p>
@@ -140,7 +140,7 @@ export default function CaseStudies() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 ${activeCategory === category
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${activeCategory === category
                     ? "bg-[#112D16] text-[#C6D6B1] shadow-md"
                     : "text-[#112D16]/75 hover:text-[#112D16] hover:bg-[#C6D6B1]/15"
                   }`}
@@ -226,13 +226,13 @@ export default function CaseStudies() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 group/title"
                           >
-                            <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide group-hover/title:text-[#054418] transition-colors">
+                            <h2 className="text-xl font-bold text-[#112D16] group-hover/title:text-[#054418] transition-colors">
                               {project.name}
                             </h2>
-                            <ArrowUpRight className="w-5 h-5 text-[#112D16]/50 group-hover/title:text-[#112D16] group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all" />
+                            <ArrowUpRight className="w-4 h-4 text-[#112D16]/50 group-hover/title:text-[#112D16] group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all" />
                           </a>
                         ) : (
-                          <h2 className="text-2xl font-black text-[#112D16] uppercase tracking-wide">
+                          <h2 className="text-xl font-bold text-[#112D16]">
                             {project.name}
                           </h2>
                         )}

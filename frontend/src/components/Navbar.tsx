@@ -114,7 +114,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href="/" onClick={handleHomeClick} className="text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors">
+            <Link href="/" onClick={handleHomeClick} className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors">
               Home
             </Link>
 
@@ -124,7 +124,7 @@ export default function Navbar() {
                 <button
                   aria-haspopup="true"
                   aria-expanded={activeDropdown === name}
-                  className="flex items-center gap-1 text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors py-2 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent outline-none focus:outline-none ring-0 focus:ring-0 border-0"
+                  className="flex items-center gap-1 text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors py-2 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent outline-none focus:outline-none ring-0 focus:ring-0 border-0 cursor-pointer"
                 >
                   {name === "capabilities" ? "Capabilities" : name === "solutions" ? "Solutions" : "Tech Stack"}
                   <ChevronDown
@@ -134,14 +134,14 @@ export default function Navbar() {
               </div>
             ))}
 
-            <a href="/#vision-mission" onClick={handleAboutClick} className="text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors">
+            <a href="/#vision-mission" onClick={handleAboutClick} className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors">
               About
             </a>
 
-            <Link href="/case-studies" className="text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors">
+            <Link href="/case-studies" className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors">
               Case Studies
             </Link>
-            <Link href="/careers" className="text-base font-bold text-[#112D16]/85 hover:text-[#112D16] transition-colors">
+            <Link href="/careers" className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors">
               Careers
             </Link>
           </nav>
