@@ -245,32 +245,23 @@ export default function CaseStudies() {
                       </div>
 
                       {/* Clean left-bordered corporate description logs */}
-                      <div className="space-y-2.5 mb-4 text-[13px]">
+                      <div className="space-y-3.5 mb-5 text-[13.5px]">
 
-                        <div className="border-l-2 border-[#112D16]/20 pl-3">
-                          <span className="font-bold text-[#112D16]/50 block mb-0.5 uppercase tracking-wider text-[10px]">
+                        <div className="border-l-2 border-[#112D16]/20 pl-3.5">
+                          <span className="font-bold text-[#112D16]/50 block mb-1 uppercase tracking-wider text-[10px]">
                             Challenge
                           </span>
-                          <p className="text-[#112D16]/85 font-medium leading-snug">
+                          <p className="text-[#112D16]/85 font-medium leading-relaxed">
                             {project.challenge}
                           </p>
                         </div>
 
-                        <div className="border-l-2 border-[#112D16]/20 pl-3">
-                          <span className="font-bold text-[#112D16]/50 block mb-0.5 uppercase tracking-wider text-[10px]">
+                        <div className="border-l-2 border-[#112D16]/20 pl-3.5">
+                          <span className="font-bold text-[#112D16]/50 block mb-1 uppercase tracking-wider text-[10px]">
                             Solution
                           </span>
-                          <p className="text-[#112D16]/85 font-medium leading-snug">
+                          <p className="text-[#112D16]/85 font-medium leading-relaxed">
                             {project.solution}
-                          </p>
-                        </div>
-
-                        <div className="border-l-2 border-[#112D16]/30 pl-3">
-                          <span className="font-bold text-[#112D16] block mb-0.5 uppercase tracking-wider text-[10px]">
-                            Result
-                          </span>
-                          <p className="text-[#112D16] font-bold leading-snug">
-                            {project.result}
                           </p>
                         </div>
 
