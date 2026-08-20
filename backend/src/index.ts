@@ -31,7 +31,11 @@ app.use("/uploads", express.static(uploadsDir));
 app.use("/api", publicRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Health Check
+// Root Route & Health Check
+app.get("/", (_req, res) => {
+  res.json({ success: true, message: "DigiScale Infotech Backend API is live & running!", status: "online" });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", message: "DigiScale Infotech API Server Running", timestamp: new Date() });
 });
