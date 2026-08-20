@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { lenis } from "@/lib/lenis";
 
 type DropdownType = "capabilities" | "solutions" | "techstack" | null;
 
@@ -52,21 +53,52 @@ export default function Navbar() {
   };
 
   const handleHomeClick = (e: React.MouseEvent) => {
-    if (location === "/") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    e.preventDefault();
+    e.stopPropagation();
     setMobileMenuOpen(false);
+
+    // 1. Clean up any hash (#vision-mission) from URL on 1st click
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+
+    // 2. Direct silky-smooth Lenis scroll to top
+    lenis.scrollTo(0, { duration: 1.6 });
+
+    // 3. Switch route if on a different page
+    if (location !== "/") {
+      setLocation("/");
+    }
   };
 
   const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setMobileMenuOpen(false);
-    if (location === "/" || location === "") {
-      e.preventDefault();
+
+    const scrollToAbout = () => {
       const el = document.getElementById("vision-mission");
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        lenis.scrollTo(el, { offset: -20, duration: 1.8 });
+        window.history.replaceState(null, "", "#vision-mission");
       }
+    };
+
+    if (location !== "/") {
+      setLocation("/");
+      window.history.replaceState(null, "", "#vision-mission");
+
+      const checkAndScroll = () => {
+        const el = document.getElementById("vision-mission");
+        if (el) {
+          lenis.scrollTo(el, { offset: -20, duration: 1.8 });
+        } else {
+          setTimeout(checkAndScroll, 50);
+        }
+      };
+      setTimeout(checkAndScroll, 100);
+    } else {
+      scrollToAbout();
     }
   };
 
@@ -102,7 +134,7 @@ export default function Navbar() {
         <div
           className="w-full flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 mx-auto"
         >
-          <Link href="/" className="flex items-center shrink-0" onClick={handleHomeClick}>
+          <a href="/" className="flex items-center shrink-0 cursor-pointer" onClick={handleHomeClick}>
             <img
               src="/logo.png"
               alt="DigiScale Infotech"
@@ -110,13 +142,13 @@ export default function Navbar() {
                 scrolled ? "h-8 sm:h-9" : "h-9 sm:h-11"
               }`}
             />
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href="/" onClick={handleHomeClick} className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors">
+            <a href="/" onClick={handleHomeClick} className="text-[15px] font-medium text-[#112D16]/90 hover:text-[#112D16] transition-colors cursor-pointer">
               Home
-            </Link>
+            </a>
 
 
             {(["capabilities" /* , "solutions", "techstack" */] as DropdownType[]).map((name) => (
@@ -353,13 +385,13 @@ export default function Navbar() {
               className="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-white z-50 p-6 pb-12 shadow-2xl flex flex-col"
             >
               <div className="flex justify-between items-center mb-7">
-                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <a href="/" className="flex items-center shrink-0 cursor-pointer" onClick={handleHomeClick}>
                   <img
                     src="/logo.png"
                     alt="DigiScale Infotech"
                     className="h-8 w-auto object-contain"
                   />
-                </Link>
+                </a>
                 <button onClick={() => setMobileMenuOpen(false)} className="p-2">
                   <X className="w-5 h-5 text-foreground" />
                 </button>

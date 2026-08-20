@@ -11,12 +11,14 @@ import project3 from "@/assets/Portfolio/project3.webp";
 import project4 from "@/assets/Portfolio/project4.webp";
 import project5 from "@/assets/Portfolio/project5.webp";
 import project6 from "@/assets/Portfolio/project6.webp";
+import project7 from "@/assets/Portfolio/project7.webp";
 
 export const projects = [
   {
     image: project1,
     industry: "Shopify Store",
     name: "SkyParrow",
+    link: "https://skyparrow.com/",
     stack: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     challenge: "Build a premium Shopify store for a growing saree and women's fashion brand with a smooth shopping experience.",
     solution: "Designed and developed a fast, responsive Shopify store with a clean UI, optimized product pages, and a seamless checkout experience.",
@@ -26,6 +28,7 @@ export const projects = [
     image: project5,
     industry: "Custom Software",
     name: "TexaFlow Textile ERP",
+    link: "",
     stack: ["C#", "ASP.NET", "SQL Server", "Azure"],
     challenge: "Managing billing, inventory, and daily business operations manually was time-consuming and prone to errors.",
     solution: "Developed a custom business management software to digitize billing, inventory tracking, and daily operations through a single, easy-to-use system.",
@@ -35,6 +38,7 @@ export const projects = [
     image: project2,
     industry: "Design & Identity",
     name: "Stienhardt Stone",
+    link: "https://stienhardt.com",
     stack: ["Figma", "Adobe Illustrator", "Photoshop"],
     challenge: "Create a premium website that reflects the brand's craftsmanship, trust, and luxury identity.",
     solution: "Designed a modern, elegant website with a refined user experience to showcase the brand and its products professionally.",
@@ -44,6 +48,7 @@ export const projects = [
     image: project4,
     industry: "Shopify Store",
     name: "ByRavina",
+    link: "https://byravina.com/",
     stack: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     challenge: "Build a premium Shopify store that reflects the brand's style and provides a seamless shopping experience for customers.",
     solution: "Designed and developed a modern Shopify store with a clean interface, responsive layout, and an intuitive shopping journey.",
@@ -58,6 +63,16 @@ export const projects = [
     challenge: "Max Water needed a high-converting, modern landing page and web presence to showcase their advanced water purification systems, communicate product purity standards, and drive direct customer inquiries.",
     solution: "Engineered a lightning-fast, visually striking landing page with interactive product features, clear value propositions, trust badges, and an integrated lead generation workflow.",
     result: "Boosted direct lead inquiries by 45%, reduced page load time to under 1 second, and established a trusted digital brand presence at maxwater.in.",
+  },
+  {
+    image: project7,
+    industry: "Web Application",
+    name: "Lifo India",
+    link: "https://lifoindia.com",
+    stack: ["React", "Node.js", "Tailwind CSS", "TypeScript", "Vite"],
+    challenge: "Lifo India needed a modern B2B supplier digital portal to showcase their industrial product catalog, enable wholesale quote requests, and streamline business inquiries for B2B buyers across India.",
+    solution: "Engineered a high-performance B2B catalog platform featuring structured product categories, bulk inquiry workflows, instant quote requests, and responsive product search.",
+    result: "Increased B2B client inquiries by 60%, simplified product discovery for bulk buyers, and established a trusted digital presence at lifoindia.com.",
   },
   {
     image: project3,
@@ -141,8 +156,8 @@ export default function CaseStudies() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${activeCategory === category
-                    ? "bg-[#112D16] text-[#C6D6B1] shadow-md"
-                    : "text-[#112D16]/75 hover:text-[#112D16] hover:bg-[#C6D6B1]/15"
+                  ? "bg-[#112D16] text-[#C6D6B1] shadow-md"
+                  : "text-[#112D16]/75 hover:text-[#112D16] hover:bg-[#C6D6B1]/15"
                   }`}
               >
                 {category}

@@ -29,7 +29,7 @@ function ScrollToTop() {
         setTimeout(() => {
           const target = document.querySelector(hash);
           if (target) {
-            lenis.scrollTo(hash, { offset: -80, duration: 1.8 });
+            lenis.scrollTo(hash, { offset: -20, duration: 1.8 });
           }
         }, 300);
       } else {
