@@ -59,6 +59,9 @@ function CapabilitiesRoute() {
   return <Home />;
 }
 
+import AdminLogin from "@/pages/AdminLogin";
+import AdminDashboard from "@/pages/AdminDashboard";
+
 function Router() {
   const [location] = useLocation();
 
@@ -77,6 +80,8 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
+        <Route path="/admin/login" component={AdminLogin} />
+        <Route path="/admin" component={AdminDashboard} />
         <Route component={NotFound} />
       </Switch>
     </>

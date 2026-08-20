@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Loader2, Upload, FileText, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { API_URL } from "@/api/client";
 
 interface ApplyJobModalProps {
   open: boolean;
@@ -55,29 +56,42 @@ export default function ApplyJobModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !email || !phone || !resume) {
-      alert("Please fill in all required fields and upload your resume.");
+    if (!fullName || !email || !phone) {
+      alert("Please fill in all required fields.");
       return;
     }
 
     setSubmitting(true);
 
     try {
-      // Simulate API submission delay for client-only operation
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch(`${API_URL}/apply-job`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fullName,
+          email,
+          phone,
+          position: jobTitle,
+          portfolio_url: portfolio,
+          message: resume ? `Uploaded File: ${resume.name}` : "",
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Application submission failed");
+      }
 
       setSubmitted(true);
-      
+
       // Clean states
       setFullName("");
       setEmail("");
       setPhone("");
       setPortfolio("");
       setResume(null);
-
     } catch (error) {
       console.error(error);
-      alert("Something went wrong. Please try again.");
+      alert("Something went wrong with the submission. Please try again.");
     } finally {
       setSubmitting(false);
     }
