@@ -77,23 +77,42 @@ export default function ApplyJobModal({
         });
       }
 
-      const res = await fetch(`${API_URL}/apply-job`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: fullName,
-          email,
-          phone,
-          position: jobTitle,
-          portfolio_url: portfolio,
-          resume_data: resumeDataBase64,
-          resume_filename: resumeFilename,
-          message: resume ? `Uploaded File: ${resume.name}` : "",
-        }),
+      const payload = JSON.stringify({
+        name: fullName,
+        email,
+        phone,
+        position: jobTitle,
+        portfolio_url: portfolio,
+        resume_data: resumeDataBase64,
+        resume_filename: resumeFilename,
+        message: resume ? `Uploaded File: ${resume.name}` : "",
       });
 
-      if (!res.ok) {
-        throw new Error("Application submission failed");
+      let attempts = 0;
+      const maxAttempts = 3;
+      let success = false;
+
+      while (attempts < maxAttempts && !success) {
+        attempts++;
+        try {
+          const res = await fetch(`${API_URL}/apply-job`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: payload,
+          });
+
+          if (!res.ok) {
+            throw new Error("Application submission failed");
+          }
+
+          success = true;
+        } catch (err) {
+          console.error(`Application submit attempt ${attempts} failed:`, err);
+          if (attempts >= maxAttempts) {
+            throw err;
+          }
+          await new Promise((r) => setTimeout(r, 1500));
+        }
       }
 
       setSubmitted(true);

@@ -6,22 +6,38 @@ export async function submitContact(data: any) {
     email: data.email,
     phone: data.phone || "",
     service: data.service || "General Inquiry",
-    budget: data.company || "",
+    company: data.company || "",
+    budget: data.budget || data.company || "",
     message: data.message,
   };
 
-  const response = await fetch(`${API_URL}/contact`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  let attempts = 0;
+  const maxAttempts = 3;
 
-  if (!response.ok) {
-    const errData = await response.json().catch(() => ({}));
-    throw new Error(errData.error || "Failed to submit contact.");
+  while (attempts < maxAttempts) {
+    attempts++;
+    try {
+      const response = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || "Failed to submit contact.");
+      }
+
+      return await response.json();
+    } catch (err) {
+      console.error(`Contact submission attempt ${attempts} failed:`, err);
+      if (attempts >= maxAttempts) {
+        throw err;
+      }
+      // Wait 1.5s before retry (handles Render cold start)
+      await new Promise((r) => setTimeout(r, 1500));
+    }
   }
-
-  return response.json();
 }
