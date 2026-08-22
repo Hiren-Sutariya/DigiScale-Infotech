@@ -226,7 +226,7 @@ app.post(["/api/newsletter", "/api/newsletter/"], (req, res) => {
 });
 
 // 4. Apply for Job
-app.post("/api/apply-job", (req, res) => {
+app.post(["/api/apply-job", "/apply-job"], (req, res) => {
   const {
     name,
     email,
@@ -277,7 +277,7 @@ app.post("/api/apply-job", (req, res) => {
 // ==================== ADMIN AUTH & DASHBOARD ROUTES ====================
 
 // Admin Login
-app.post("/api/admin/login", (req, res) => {
+app.post(["/api/admin/login", "/admin/login"], (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(400).json({ error: "Email and password are required." });
@@ -329,7 +329,7 @@ app.post("/api/admin/login", (req, res) => {
 });
 
 // Admin Stats
-app.get("/api/admin/stats", authAdmin, (req, res) => {
+app.get(["/api/admin/stats", "/admin/stats"], authAdmin, (req, res) => {
   db.get("SELECT COUNT(*) as total_inquiries FROM inquiries", [], (err, row1) => {
     if (err) return res.status(500).json({ error: "Database error." });
 
@@ -367,7 +367,7 @@ app.get("/api/admin/stats", authAdmin, (req, res) => {
 });
 
 // Admin Inquiries List
-app.get("/api/admin/inquiries", authAdmin, (req, res) => {
+app.get(["/api/admin/inquiries", "/admin/inquiries"], authAdmin, (req, res) => {
   db.all("SELECT * FROM inquiries ORDER BY created_at DESC", [], (err, rows) => {
     if (err) {
       return res.status(500).json({ error: "Failed to fetch inquiries." });
@@ -377,7 +377,7 @@ app.get("/api/admin/inquiries", authAdmin, (req, res) => {
 });
 
 // Admin Inquiry Update Status
-app.patch("/api/admin/inquiries/:id", authAdmin, (req, res) => {
+app.patch(["/api/admin/inquiries/:id", "/admin/inquiries/:id"], authAdmin, (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
 
@@ -398,7 +398,7 @@ app.patch("/api/admin/inquiries/:id", authAdmin, (req, res) => {
 });
 
 // Admin Inquiry Delete
-app.delete("/api/admin/inquiries/:id", authAdmin, (req, res) => {
+app.delete(["/api/admin/inquiries/:id", "/admin/inquiries/:id"], authAdmin, (req, res) => {
   const { id } = req.params;
 
   db.run("DELETE FROM inquiries WHERE id = ?", [id], function (err) {
@@ -410,7 +410,7 @@ app.delete("/api/admin/inquiries/:id", authAdmin, (req, res) => {
 });
 
 // Admin Applications List
-app.get("/api/admin/applications", authAdmin, (req, res) => {
+app.get(["/api/admin/applications", "/admin/applications"], authAdmin, (req, res) => {
   db.all("SELECT * FROM applications ORDER BY created_at DESC", [], (err, rows) => {
     if (err) {
       return res.status(500).json({ error: "Failed to fetch applications." });
@@ -420,7 +420,7 @@ app.get("/api/admin/applications", authAdmin, (req, res) => {
 });
 
 // Admin Application Update Status
-app.patch("/api/admin/applications/:id", authAdmin, (req, res) => {
+app.patch(["/api/admin/applications/:id", "/admin/applications/:id"], authAdmin, (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
 
@@ -441,7 +441,7 @@ app.patch("/api/admin/applications/:id", authAdmin, (req, res) => {
 });
 
 // Admin Application Delete
-app.delete("/api/admin/applications/:id", authAdmin, (req, res) => {
+app.delete(["/api/admin/applications/:id", "/admin/applications/:id"], authAdmin, (req, res) => {
   const { id } = req.params;
 
   db.run("DELETE FROM applications WHERE id = ?", [id], function (err) {
