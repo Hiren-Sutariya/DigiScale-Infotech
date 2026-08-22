@@ -1,12 +1,12 @@
 {
   "name": "digiscale-backend",
   "version": "1.0.0",
-  "description": "DigiScale Infotech Admin Portal and API Server",
-  "main": "dist/index.js",
+  "description": "Backend API service for DigiScale Infotech contact form, inquiries, applications, and admin panel",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -14,16 +14,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "better-sqlite3": "^11.8.1"
-  },
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/better-sqlite3": "^7.6.12",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/jsonwebtoken": "^9.0.8",
-    "@types/node": "^22.13.4",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.7.3"
+    "nodemailer": "^6.10.0",
+    "sqlite3": "^5.1.7"
   }
 }

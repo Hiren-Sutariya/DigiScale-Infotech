@@ -137,11 +137,10 @@ function StatusDropdown({
                 onChange(opt.value);
                 setOpen(false);
               }}
-              className={`w-full text-left px-3 py-2 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer my-0.5 ${
-                value === opt.value
+              className={`w-full text-left px-3 py-2 rounded-lg text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer my-0.5 ${value === opt.value
                   ? "bg-[#112D16] text-[#C6D6B1]"
                   : "text-[#112D16] hover:bg-[#112D16]/5"
-              }`}
+                }`}
             >
               <span>{opt.label}</span>
               {value === opt.value && <Check className="w-3.5 h-3.5 text-[#C6D6B1]" />}
@@ -440,11 +439,10 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-3 bg-[#112D16]/5 p-1.5 rounded-2xl border border-[#112D16]/10">
             <button
               onClick={() => setActiveTab("inquiries")}
-              className={`px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${
-                activeTab === "inquiries"
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${activeTab === "inquiries"
                   ? "bg-[#112D16] text-[#C6D6B1] shadow-md border border-[#112D16]"
                   : "text-[#112D16]/70 hover:text-[#112D16] hover:bg-white/50"
-              }`}
+                }`}
             >
               <MessageSquare className="w-4 h-4" />
               <span>Contact Inquiries ({inquiries.length})</span>
@@ -452,11 +450,10 @@ export default function AdminDashboard() {
 
             <button
               onClick={() => setActiveTab("applications")}
-              className={`px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${
-                activeTab === "applications"
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all cursor-pointer flex items-center gap-2 ${activeTab === "applications"
                   ? "bg-[#112D16] text-[#C6D6B1] shadow-md border border-[#112D16]"
                   : "text-[#112D16]/70 hover:text-[#112D16] hover:bg-white/50"
-              }`}
+                }`}
             >
               <Briefcase className="w-4 h-4" />
               <span>Job Applications ({applications.length})</span>
@@ -533,7 +530,7 @@ export default function AdminDashboard() {
                     filteredInquiries.map((item) => (
                       <tr key={item.id} className="hover:bg-[#112D16]/2 transition-colors">
                         <td className="py-4 px-5 font-bold text-[#112D16]/50">#{item.id}</td>
-                        
+
                         {/* Name */}
                         <td className="py-4 px-5 font-bold text-[#112D16]">{item.name}</td>
 
@@ -648,7 +645,7 @@ export default function AdminDashboard() {
                       return (
                         <tr key={item.id} className="hover:bg-[#112D16]/2 transition-colors">
                           <td className="py-4 px-5 font-bold text-[#112D16]/50">#{item.id}</td>
-                          
+
                           {/* Name */}
                           <td className="py-4 px-5 font-bold text-[#112D16]">
                             {item.name}
