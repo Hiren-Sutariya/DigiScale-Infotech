@@ -6,13 +6,13 @@ if (typeof window !== "undefined") {
   if (host === "localhost" || host === "127.0.0.1") {
     targetUrl = targetUrl || "http://localhost:5001/api";
   } else if (host.includes("digiscaleinfotech.com") || host.includes("vercel.app")) {
-    targetUrl = "https://digiscale-infotech-hiv6.onrender.com/api";
+    targetUrl = "https://digiscale-infotech-wdoc.onrender.com/api";
   }
 }
 
 if (!targetUrl) {
   targetUrl = import.meta.env.PROD
-    ? "https://digiscale-infotech-hiv6.onrender.com/api"
+    ? "https://digiscale-infotech-wdoc.onrender.com/api"
     : "http://localhost:5001/api";
 }
 
