@@ -1,19 +1,6 @@
 // Bulletproof API URL Resolution for Live Production & Local Development
-let targetUrl = import.meta.env.VITE_API_URL || "";
-
-if (typeof window !== "undefined") {
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1") {
-    targetUrl = targetUrl || "http://localhost:5001/api";
-  } else if (host.includes("digiscaleinfotech.com") || host.includes("vercel.app")) {
-    targetUrl = "https://digiscale-infotech-wdoc.onrender.com/api";
-  }
-}
-
-if (!targetUrl) {
-  targetUrl = import.meta.env.PROD
-    ? "https://digiscale-infotech-wdoc.onrender.com/api"
-    : "http://localhost:5001/api";
-}
-
-export const API_URL = targetUrl.replace(/\/+$/, "");
+export const API_URL =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:5001/api"
+    : "https://digiscale-infotech-wdoc.onrender.com/api";
