@@ -73,9 +73,10 @@ db.serialize(() => {
     )
   `);
 
-  // Seed default admin if missing
+  // Seed / Sync default admin
   const adminEmail = process.env.ADMIN_EMAIL || "admin@digiscaleinfotech.com";
   const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+  const hash = bcrypt.hashSync(adminPassword, 10);
 
   db.get("SELECT * FROM admins WHERE email = ?", [adminEmail], (err, row) => {
     if (err) {
@@ -83,10 +84,14 @@ db.serialize(() => {
       return;
     }
     if (!row) {
-      const hash = bcrypt.hashSync(adminPassword, 10);
       db.run("INSERT INTO admins (email, password_hash) VALUES (?, ?)", [adminEmail, hash], (err) => {
         if (err) console.error("Error seeding default admin:", err);
         else console.log(`Default admin created: ${adminEmail}`);
+      });
+    } else {
+      db.run("UPDATE admins SET password_hash = ? WHERE email = ?", [hash, adminEmail], (err) => {
+        if (err) console.error("Error updating admin password:", err);
+        else console.log(`Default admin password synced: ${adminEmail}`);
       });
     }
   });
