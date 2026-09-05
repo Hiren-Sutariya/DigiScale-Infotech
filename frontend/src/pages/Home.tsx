@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-clip">
       <SEO
-        title="Web Development, Shopify & AI Automation Company in Surat"
-        description="DigiScale Infotech is a top-rated web development & software company in Surat, India. Custom websites, Shopify stores, AI automations, and mobile apps. Think Digital, Scale Smart."
+        title="DigiScale Infotech | Web Development, Shopify & AI Automation"
+        description="DigiScale Infotech is a leading web development & software company in Surat, India. Custom websites, Shopify stores, AI automations, and mobile apps. Think Digital, Scale Smart."
         path="/"
         keywords="web development company surat, software company surat, shopify developer surat, AI automation surat, custom website design, mobile app development gujarat, digiscale infotech"
         customSchema={[

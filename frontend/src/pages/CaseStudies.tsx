@@ -98,7 +98,7 @@ export default function CaseStudies() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <SEO
-        title="Our Work & Case Studies | DigiScale Infotech Portfolio"
+        title="Case Studies & Portfolio"
         description="Explore DigiScale Infotech's portfolio of successful client projects: custom web applications, Shopify stores, ERP systems, and AI automations."
         path="/case-studies"
         keywords="web development portfolio, shopify case studies, custom software portfolio, digiscale infotech projects, web app examples"

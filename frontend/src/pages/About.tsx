@@ -7,7 +7,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us | Web Development & AI Automation Company Surat"
+        title="About Us"
         description="DigiScale Infotech is a leading web development and AI software agency in Surat, Gujarat. Learn about our vision, mission, team, and digital solutions."
         path="/about"
         keywords="about digiscale infotech, web development agency surat, software team surat, shopify developers india"

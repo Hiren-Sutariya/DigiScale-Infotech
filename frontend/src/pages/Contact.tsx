@@ -73,7 +73,7 @@ export default function Contact() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <SEO
-        title="Contact DigiScale Infotech | Get Free Consultation & Quote"
+        title="Contact Us"
         description="Get in touch with DigiScale Infotech in Surat, Gujarat. Discuss your custom web development, Shopify store, AI automation, or mobile app project today."
         path="/contact"
         keywords="contact web development company surat, software consultation surat, hire shopify developer surat, digiscale infotech contact"
