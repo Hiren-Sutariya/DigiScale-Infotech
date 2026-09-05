@@ -30,10 +30,23 @@
   <link rel="icon" href="/favicon_64.png?v=3" type="image/png" sizes="64x64" />
   <link rel="icon" href="/favicon_128.png?v=3" type="image/png" sizes="128x128" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
-  <!-- Google Fonts: Geist, Geist Mono, Plus Jakarta Sans & Inter -->
+  <!-- Google Tag Manager / Analytics DataLayer Initialization -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Google Analytics 4 / GTM Container fallback placeholder
+    // Replace 'G-XXXXXXXXXX' or 'GTM-XXXXXXX' when live container ID is ready
+    if (window.location.hostname === 'digiscaleinfotech.com') {
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    }
+  </script>
+
+  <!-- Google Fonts Optimization for Core Web Vitals -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" fetchpriority="high">
+
 
   <!-- Open Graph (Facebook/LinkedIn/WhatsApp) -->
   <meta property="og:type" content="website" />

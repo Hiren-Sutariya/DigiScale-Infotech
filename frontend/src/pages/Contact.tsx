@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { submitContact } from "@/api/contact";
 import SEO from "@/components/SEO";
+import { trackContactFormSubmit, trackContactClick } from "@/lib/analytics";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -49,6 +50,9 @@ export default function Contact() {
         message: data.message,
       });
 
+      // Performance Marketing Conversion Tracking
+      trackContactFormSubmit({ service: data.service, source: "Contact Form" });
+
       toast({
         title: "Message Sent!",
         description: "We'll get back to you within 24 hours.",
@@ -69,10 +73,12 @@ export default function Contact() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <SEO
-        title="Contact"
-        description="Get in touch with DigiScale Infotech. Tell us about your project, software requirements, or business goals, and we'll get back to you shortly."
+        title="Contact DigiScale Infotech | Get Free Consultation & Quote"
+        description="Get in touch with DigiScale Infotech in Surat, Gujarat. Discuss your custom web development, Shopify store, AI automation, or mobile app project today."
         path="/contact"
+        keywords="contact web development company surat, software consultation surat, hire shopify developer surat, digiscale infotech contact"
       />
+
       <Navbar />
 
       {/* ── Hero ── */}
@@ -158,7 +164,14 @@ export default function Contact() {
                       <div>
                         <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-0.5">{label}</p>
                         {href ? (
-                          <a href={href} className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                          <a
+                            href={href}
+                            onClick={() => {
+                              if (label === "Phone") trackContactClick("phone", value);
+                              if (label === "Email") trackContactClick("email", value);
+                            }}
+                            className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                          >
                             {value}
                           </a>
                         ) : (

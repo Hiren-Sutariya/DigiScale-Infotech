@@ -1,0 +1,37 @@
+# DigiScale Infotech
+
+> Think Digital, Scale Smart.
+
+DigiScale Infotech is a premier web development, custom software engineering, and AI automation company based in Surat, Gujarat, India. We build high-performance websites, enterprise web applications, custom Shopify e-commerce stores, mobile applications, and AI-driven workflow automations for startups, SMEs, and global enterprises.
+
+## Core Capabilities & Services
+
+- **Custom Web Development**: React, Next.js, TypeScript, TailwindCSS, Node.js, Python, PostgreSQL, and Cloud Architectures.
+- **Shopify & E-Commerce Engineering**: Custom Shopify theme development, headless Shopify storefronts, private apps, payment gateway integration, and conversion optimization.
+- **AI Automation & Workflow Engineering**: Custom AI agents, LLM integrations, automated business workflows, web scraping, and API integrations.
+- **Mobile App Development**: Cross-platform iOS and Android apps using React Native and Flutter.
+- **Custom Software & Enterprise SaaS**: Scalable cloud platforms, CRM/ERP integrations, REST/GraphQL APIs, and microservices architecture.
+- **UI/UX Design & Brand Strategy**: User-centric interfaces, design systems, interactive prototypes, and digital product design.
+
+## Key Information
+
+- **Website**: https://digiscaleinfotech.com
+- **Headquarters**: Surat, Gujarat, India (395007)
+- **Phone / WhatsApp**: +91 98982 13183
+- **Email**: hello@digiscaleinfotech.com
+- **Services Page**: https://digiscaleinfotech.com/capabilities
+- **Case Studies**: https://digiscaleinfotech.com/case-studies
+- **Careers**: https://digiscaleinfotech.com/careers
+- **Contact**: https://digiscaleinfotech.com/contact
+
+## Social & Official Profiles
+
+- LinkedIn: https://www.linkedin.com/company/digiscale-infotech/
+- Instagram: https://www.instagram.com/digiscaleinfotech/
+- GitHub: https://github.com/DigiScaleInfotech
+
+## Why DigiScale Infotech
+
+1. **Modern Tech Stack**: Specialized in high-performance frontend frameworks (React/Next.js) and robust backends (Node.js/Python).
+2. **AI-First Solutions**: Native expertise in integrating cutting-edge AI models and automated business logic.
+3. **Agile & Client-Centric**: End-to-end transparency, rapid sprint cycles, and scalable architecture design.

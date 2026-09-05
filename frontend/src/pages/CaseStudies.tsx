@@ -98,9 +98,22 @@ export default function CaseStudies() {
   return (
     <main className="min-h-screen w-full flex flex-col bg-background overflow-x-hidden">
       <SEO
-        title="Our Work & Case Studies | DigiScale Infotech"
-        description="Explore our portfolio of successful projects including custom web apps, Shopify stores, ERP systems, and AI automation solutions."
+        title="Our Work & Case Studies | DigiScale Infotech Portfolio"
+        description="Explore DigiScale Infotech's portfolio of successful client projects: custom web applications, Shopify stores, ERP systems, and AI automations."
         path="/case-studies"
+        keywords="web development portfolio, shopify case studies, custom software portfolio, digiscale infotech projects, web app examples"
+        customSchema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "DigiScale Infotech Portfolio & Case Studies",
+          "itemListElement": projects.map((p, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": p.name,
+            "description": `${p.industry}: ${p.challenge} - ${p.solution}`,
+            "url": (p.link && p.link.startsWith("http")) ? p.link : `https://digiscaleinfotech.com/case-studies`,
+          })),
+        }}
       />
       <Navbar />
 

@@ -1,13 +1,28 @@
 User-agent: *
 Allow: /
 
-# Disallow admin/private paths (add any if needed)
+# Exclude internal/admin paths
+Disallow: /admin
+Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /node_modules/
 
-# Crawl delay (optional, be gentle on server)
-Crawl-delay: 5
+# AI Search Crawlers (GEO - Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
 
-# Sitemap location
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap & AI Context
 Sitemap: https://digiscaleinfotech.com/sitemap.xml

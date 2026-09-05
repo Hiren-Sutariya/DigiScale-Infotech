@@ -1,0 +1,42 @@
+# DigiScale Infotech — Complete Knowledge Documentation
+
+## Overview
+DigiScale Infotech (founded 2023) is a technology development agency headquartered in Surat, Gujarat, India. The company specializes in modern web development, custom software engineering, Shopify store creation, AI automation, and mobile application development.
+
+## Service Offerings
+
+### 1. Web Development & Web Applications
+- Stack: React, Next.js, Vite, TypeScript, TailwindCSS, Node.js, Express, PostgreSQL, MongoDB, Render, Vercel, AWS.
+- Features: Server-side rendering, static site generation, single page applications (SPAs), responsive dark/light UI, fast LCP & CLS optimization, WCAG accessibility compliance, security hardening.
+
+### 2. Shopify & E-Commerce Solutions
+- Capabilities: Theme customization, custom Liquid / React components, headless storefronts (Shopify Storefront API), payment gateway integrations (Razorpay, Stripe, PayPal, UPI), inventory sync, private app development.
+
+### 3. AI Automation & Intelligent Workflows
+- Solutions: LLM API integrations (OpenAI, Anthropic Claude, Gemini), custom AI agents, automated email & CRM pipelines, automated data scraping & enrichment, customer support chatbots.
+
+### 4. Mobile Application Development
+- Stack: React Native, Expo, Flutter, iOS (Swift), Android (Kotlin).
+- Capabilities: Native device integrations, push notifications, offline storage, secure authentication.
+
+### 5. UI/UX Design & Brand System
+- Services: Figma design systems, wireframing, high-fidelity prototypes, user research, interaction design.
+
+## Frequently Asked Questions (FAQ)
+
+### Q: Where is DigiScale Infotech located?
+A: DigiScale Infotech is located in Surat, Gujarat, India (Zip Code: 395007). We serve clients locally in Surat, across Gujarat, India, as well as global B2B clients in the USA, UK, UAE, Australia, and Europe.
+
+### Q: How can clients contact DigiScale Infotech?
+A: You can reach us via email at hello@digiscaleinfotech.com or via WhatsApp / Phone at +91 98982 13183. You can also submit inquiries at https://digiscaleinfotech.com/contact.
+
+### Q: Does DigiScale Infotech build custom software for startups?
+A: Yes, DigiScale Infotech specializes in building Minimum Viable Products (MVPs) and scaling production applications for startups and growing enterprises.
+
+## Official Site Links
+- Homepage: https://digiscaleinfotech.com/
+- About Us: https://digiscaleinfotech.com/about
+- Services & Capabilities: https://digiscaleinfotech.com/capabilities
+- Case Studies & Portfolio: https://digiscaleinfotech.com/case-studies
+- Careers: https://digiscaleinfotech.com/careers
+- Contact Us: https://digiscaleinfotech.com/contact

@@ -61,9 +61,11 @@ function CapabilitiesRoute() {
 
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 function Router() {
   const [location] = useLocation();
+  const isAdmin = location.startsWith("/admin");
 
   return (
     <>
@@ -84,6 +86,8 @@ function Router() {
         <Route path="/admin" component={AdminDashboard} />
         <Route component={NotFound} />
       </Switch>
+
+      {!isAdmin && <WhatsAppButton />}
     </>
   );
 }
